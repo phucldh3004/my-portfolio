@@ -10,7 +10,7 @@
   --card-foreground: oklch(0.25 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.25 0 0);
-  --primary: oklch(0.35 0.15 250);
+  --primary: #0c4a6e;
   --primary-foreground: oklch(0.98 0 0);
   --secondary: oklch(0.92 0 0);
   --secondary-foreground: oklch(0.25 0 0);
@@ -22,7 +22,7 @@
   --destructive-foreground: oklch(0.98 0 0);
   --border: oklch(0.88 0 0);
   --input: oklch(0.88 0 0);
-  --ring: oklch(0.35 0.15 250);
+  --ring: #0c4a6e;
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
@@ -37,6 +37,14 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+
+  /* ── Primitive brand colors ───────────────────────────────────── */
+  --brand-dark:  #0f172a; /* slate-900  */
+  --brand:       #0c4a6e; /* sky-900 — primary brand color */
+  --brand-mid:   #0369a1; /* sky-700    */
+  --brand-light: #38bdf8; /* sky-400    */
+  /* Shorthand gradient using brand primitives */
+  --gradient-brand: linear-gradient(to right, var(--brand-dark), var(--brand));
 }
 
 .dark {
@@ -46,7 +54,7 @@
   --card-foreground: oklch(0.92 0 0);
   --popover: oklch(0.18 0.01 250);
   --popover-foreground: oklch(0.92 0 0);
-  --primary: oklch(0.55 0.18 200);
+  --primary: #0c4a6e;
   --primary-foreground: oklch(0.98 0 0);
   --secondary: oklch(0.25 0.01 250);
   --secondary-foreground: oklch(0.92 0 0);
@@ -58,7 +66,7 @@
   --destructive-foreground: oklch(0.98 0 0);
   --border: oklch(0.25 0.01 250);
   --input: oklch(0.25 0.01 250);
-  --ring: oklch(0.55 0.18 200);
+  --ring: #0c4a6e;
   --chart-1: oklch(0.488 0.243 264.376);
   --chart-2: oklch(0.696 0.17 162.48);
   --chart-3: oklch(0.769 0.188 70.08);
@@ -72,6 +80,13 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(0.269 0 0);
   --sidebar-ring: oklch(0.439 0 0);
+
+  /* ── Primitive brand colors (dark mode — brighten slightly) ────── */
+  --brand-dark:  #0f172a;
+  --brand:       #0c4a6e;
+  --brand-mid:   #0ea5e9; /* sky-500 — more visible on dark bg */
+  --brand-light: #7dd3fc; /* sky-300 */
+  --gradient-brand: linear-gradient(to right, var(--brand-dark), var(--brand));
 }
 
 @theme inline {
@@ -112,6 +127,12 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+
+  /* ── Brand primitives exposed to Tailwind ────────────────────── */
+  --color-brand-dark:  var(--brand-dark);
+  --color-brand:       var(--brand);
+  --color-brand-mid:   var(--brand-mid);
+  --color-brand-light: var(--brand-light);
 }
 
 @layer base {

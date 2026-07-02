@@ -16,7 +16,7 @@ export interface Experience {
   company: string;
   role: string;
   type: string;
-  teamSize: number;
+  teamSize?: number;
   achievements: string[];
   tech: string[];
 }
@@ -41,16 +41,16 @@ export const profileData: ProfileData = {
   name: "Hoang Phuc",
   fullName: "Lê Dương Hoàng Phúc",
   title: "Fullstack Developer",
-  email: "vuduc1711@gmail.com",
-  phone: "0328691535",
-  github: "vuduc0910",
-  linkedin: "richardvo1412",
-  githubUrl: "https://github.com/vuduc0910",
-  linkedinUrl: "https://www.linkedin.com/in/richardvo1412/",
+  email: "leduonghoangphuc3004@gmail.com",
+  phone: "0886392505",
+  github: "phucldh3004",
+  linkedin: "phucldh3004",
+  githubUrl: "https://github.com/phucldh3004",
+  linkedinUrl: "https://www.linkedin.com/in/phucldh3004/",
   bio: [
-    "I'm a developer passionate about crafting high-quality, scalable web applications that deliver exceptional user experiences. My expertise lies at the intersection of frontend and backend development, creating solutions that are both visually appealing and technically robust.",
-    "Currently, I'm a Senior Full-stack Developer at Fanzeal Singapore, where I lead teams in building innovative platforms for sports and entertainment enthusiasts. I specialize in React, Next.js, Vue, Node.js, and AWS, with a strong focus on performance optimization and scalability.",
-    "Throughout my career, I've had the opportunity to work on diverse projects—from blockchain-powered collectibles platforms to mobile applications serving thousands of users. I'm committed to staying current with emerging technologies and delivering products that precisely meet client requirements."
+    "A Technical Senior Frontend Developer with over 5 years of experience in building scalable web applications using React/Next.js and Vue/Nuxt.js.",
+    "Aiming to leverage strong leadership skills and full-stack expertise to drive technical excellence, optimize system performance, and mentor engineering teams in a professional global environment.",
+    "Seeking to transition into a Frontend Architect/Senior Fullstack role in the near future."
   ],
   skills: {
     "Front End": [
@@ -61,7 +61,6 @@ export const profileData: ProfileData = {
       "Next.js",
       "Nuxt",
       "React Native",
-      "Remix"
     ],
     "Back End": [
       "Node.js",
@@ -96,70 +95,137 @@ export const profileData: ProfileData = {
   },
   experiences: [
     {
-      period: "04/2023 - Present",
-      company: "Fanzeal Singapore",
-      role: "Senior Full-stack Developer",
-      type: "Hybrid",
-      teamSize: 12,
+      period: "January 2026 - June 2026",
+      company: "Gianty VN",
+      role: "Senior Frontend Developer (Go project)",
+      type: "On-site",
+      teamSize: 8,
       achievements: [
-        "Led development of mobile app and web platforms serving 10,000+ concurrent users",
-        "Implemented hybrid authentication systems supporting 30,000+ account creations",
-        "Managed and mentored 4 junior developers",
-        "Configured CI/CD pipelines and AWS infrastructure",
-        "Integrated payment systems (Stripe, PayPal, Apple IAP) and analytics platforms"
+        "Developed new features and maintained legacy functionalities.",
+        "Successfully migrated a core web application from Nuxt 2 to Nuxt 4, improving Core Web Vitals (LCP/FID) by 25% and optimizing bundle size.",
+        "Optimized application responsiveness and reduced initial bundle size by implementing route-level Lazy Loading (page-based splitting) and dynamic component imports.",
+        "Utilized AI tools like Antigravity and Claude to accelerate development velocity."
       ],
-      tech: [
-        "React",
-        "React Native",
-        "Next.js",
-        "NestJS",
-        "PostgreSQL",
-        "Redis",
-        "Blockchain",
-        "AWS"
-      ]
+      tech: ["Vue.js 2", "Vue.js 3", "Nuxt 2", "Nuxt 4", "Figma", "Stitch (Google AI)"]
     },
     {
-      period: "01/2022 - Present",
-      company: "Hachix",
-      role: "Full-stack Developer",
+      period: "September 2023 - January 2026",
+      company: "Gianty VN",
+      role: "Senior Frontend Developer / Software Engineer (NobiNobi project)",
+      type: "On-site",
+      teamSize: 12,
+      achievements: [
+        "Selected technology stack and initialized frontend source codebase.",
+        "Developed UI features and functional handlers, including common shared utilities.",
+        "Created reusable common components to streamline interface development.",
+        "Integrated front-end applications with APIs and built Firebase Cloud Messaging (FCM) push notification features.",
+        "Managed merge requests, performed deployments to multiple environments, and resolved code conflicts.",
+        "Fixed critical, high-priority, and hotfix bugs across the full stack.",
+        "Participated in requirements discussion and agile processes, including task management and estimation.",
+        "Supported team members with technical issues and algorithmic challenges.",
+        "Implemented E2E testing using Playwright, reducing regression bugs by 30% and improving deployment confidence.",
+        "Worked on B2C, B2B, B2B2C, and ERP platforms for the company.",
+        "Optimized initial page load times and bundle sizes by implementing route-level Lazy Loading and dynamic Next.js imports.",
+        "Developed backend APIs and leveraged AI tools (ChatGPT 4.0, Cursor, Claude) to speed up delivery."
+      ],
+      tech: ["React", "Next.js", "Node.js", "NestJS", "Ant Design", "TypeScript", "Strapi", "Firebase", "Playwright", "Figma"]
+    },
+    {
+      period: "March 2025 - January 2026",
+      company: "DIGITAL UNICORN",
+      role: "Frontend Developer",
       type: "Freelancer",
       teamSize: 5,
       achievements: [
-        "Designed and implemented scalable backend system and database schema",
-        "Built responsive user interfaces for workflow management platforms",
-        "Optimized database queries and implemented effective caching strategies",
-        "Developed automated warehouse management system for workforce tracking"
+        "Developed frontend applications for HKN and FMP Medical Center projects.",
+        "Designed pixel-perfect UI mapping closely to Figma design mockups.",
+        "Integrated APIs and Firebase with backend systems and Strapi CMS.",
+        "Utilized AI assistants (ChatGPT 4.0, Cursor, Claude) to optimize development speed and code quality."
       ],
-      tech: ["Express.js", "Node.js", "Vue.js", "MongoDB", "AWS"]
+      tech: ["Vue.js 3", "JavaScript", "TypeScript", "D3.js", "Chart.js", "Strapi", "Firebase", "Figma"]
     },
     {
-      period: "09/2022 - 04/2023",
-      company: "Pangara",
-      role: "Full-stack Developer",
-      type: "Hybrid",
-      teamSize: 5,
-      achievements: [
-        "Completed sprint tasks on time with high quality",
-        "Collaborated with designers and provided UI feedback",
-        "Built and deployed responsive user interfaces for freelancer platform"
-      ],
-      tech: ["Vue.js", "Laravel", "PHP", "MariaDB"]
-    },
-    {
-      period: "03/2021 - 09/2022",
-      company: "FPT Software",
-      role: "Front-end Developer",
+      period: "April 2023 - October 2023",
+      company: "Gianty VN",
+      role: "Middle Frontend Developer / Scrum Master (R&D project)",
       type: "On-site",
-      teamSize: 40,
+      teamSize: 6,
       achievements: [
-        "Led 6 fresher/junior developers and hosted product planning",
-        "Developed and maintained multiple products using Vue and Nuxt",
-        "Ensured cross-browser compatibility, accessibility, and responsiveness",
-        "Improved site performance through optimization techniques",
-        "Collaborated with PO and UX/UI designers to implement designs"
+        "Served as Project Leader and Scrum Master for the R&D project.",
+        "Selected technical stacks and initialized project code repositories.",
+        "Developed UI interfaces, core functional logic, and reusable components.",
+        "Integrated backend APIs and built login flows with OAuth2 authentication.",
+        "Fixed critical, high-priority, and hotfix bugs in both frontend and backend code.",
+        "Designed workflows, confirmed requirements with Business Analysts, and managed/estimated sprint tasks."
       ],
-      tech: ["Vue", "Nuxt", "Python", "AWS"]
+      tech: ["Vue.js 2", "Nuxt.js 2", "Java", "Spring Boot", "MySQL", "GraphQL"]
+    },
+    {
+      period: "August 2022 - April 2023",
+      company: "Gianty VN",
+      role: "Middle Frontend Developer (SBworks project)",
+      type: "On-site",
+      teamSize: 12,
+      achievements: [
+        "Developed UI and functional logic for SBworks project.",
+        "Maintained system stability by resolving legacy code issues and bugs.",
+        "Integrated APIs and resolved business logic bugs (e.g., coupon flow, payment flow)."
+      ],
+      tech: ["Vue.js 2", "Nuxt 2", "GitHub"]
+    },
+    {
+      period: "September 2021 - August 2022",
+      company: "FPT Software",
+      role: "Frontend Developer (FUKUMA project)",
+      type: "On-site",
+      teamSize: 30,
+      achievements: [
+        "Developed user interfaces and functional logic for FUKUMA project.",
+        "Maintained legacy source code and resolved system-wide issues.",
+        "Integrated backend APIs and fixed frontend-related bugs."
+      ],
+      tech: ["Vue.js 2", "Vue.js 3", "Nuxt 3", "jQuery", "MySQL"]
+    },
+    {
+      period: "August 2021 - September 2021",
+      company: "FPT Software",
+      role: "Frontend Developer (HTCTOPE project)",
+      type: "On-site",
+      teamSize: 20,
+      achievements: [
+        "Contributed to HTCTOPE project by migrating UI integration from Internet Explorer to Microsoft Edge.",
+        "Implemented new features and fixed bugs based on ticket specifications.",
+        "Wrote test cases and performed manual testing."
+      ],
+      tech: ["HTML", "CSS", "Bootstrap", "JavaScript", "jQuery", "Vue.js 2", "MySQL"]
+    },
+    {
+      period: "January 2021 - August 2021",
+      company: "FPT Software",
+      role: "Full-stack Developer (SENMONTEN project)",
+      type: "On-site",
+      teamSize: 50,
+      achievements: [
+        "Developed business functions and frontend/backend components for SENMONTEN project.",
+        "Created database migration tools, managed PostgreSQL databases, and wrote dummy data script generators.",
+        "Developed a custom data checking tool using Java Spring Boot.",
+        "Debugged and fixed full-stack bugs."
+      ],
+      tech: ["Java", "Spring Boot", "JPA", "Hibernate", "Vue.js 2", "PostgreSQL"]
+    },
+    {
+      period: "July-2020 - January 2021",
+      company: "FPT Software",
+      role: "Full-stack Developer (HINO project)",
+      type: "On-site",
+      teamSize: 12,
+      achievements: [
+        "Contributed to HINO project as a Full-stack Developer.",
+        "Developed backend API endpoints using Java Spring Boot.",
+        "Designed reporting interfaces with Jasper Reports and frontend pages using Vue.js.",
+        "Implemented unit testing with JUnit to ensure code reliability."
+      ],
+      tech: ["Java", "Spring Boot", "JPA", "Hibernate", "Jasper Reports", "Vue.js 2", "PostgreSQL", "JUnit"]
     }
   ],
   projects: [

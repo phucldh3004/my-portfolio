@@ -29,11 +29,11 @@ export function HeroSection() {
             minWidth: 200.0,
             scale: 1.0,
             scaleMobile: 1.0,
-            color: 0x3b82f6,
+            color: 0x0c4a6e,
             backgroundColor: 0x0a0a0a,
-            points: 10.0,
-            maxDistance: 25.0,
-            spacing: 15.0,
+            points: 16.0,
+            maxDistance: 31.0,
+            spacing: 21.0,
           });
           console.log("Vanta.js NET initialized successfully");
         } catch (err) {
@@ -90,16 +90,16 @@ export function HeroSection() {
   return (
     <>
       {/* Declarative loading of dependency scripts using Next.js optimization */}
-      <Script 
-        src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js" 
+      <Script
+        src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"
         strategy="afterInteractive"
         onLoad={() => {
           console.log("Three.js loaded via next/script");
           setThreeLoaded(true);
         }}
       />
-      <Script 
-        src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js" 
+      <Script
+        src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"
         strategy="afterInteractive"
         onLoad={() => {
           console.log("Vanta.js loaded via next/script");
@@ -113,8 +113,8 @@ export function HeroSection() {
         <div className="container mx-auto max-w-5xl relative z-10">
           <div className="flex flex-col md:flex-row items-center gap-12">
             <motion.div className="flex-shrink-0" initial="hidden" animate="visible" variants={avatarVariants}>
-              <div className="relative w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden ring-4 ring-primary/20">
-                <Image src="/avatar.jpg" alt={profileData.name} fill className="object-cover" priority />
+              <div className="relative w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden ring-4 ring-[#0c4a6e]/20">
+                <Image src="/avatar_phucldh.jpg" alt={profileData.name} fill className="object-cover" priority />
               </div>
             </motion.div>
 
@@ -137,12 +137,14 @@ export function HeroSection() {
               </motion.p>
 
               <motion.div variants={itemVariants} className="flex flex-wrap gap-4">
-                <Button size="lg" asChild>
-                  <a href="#contact">
-                    Get in touch
-                    <ArrowRight className="ml-2 h-5 w-5" />
-                  </a>
-                </Button>
+                <a
+                  href="#contact"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-md text-sm font-medium text-white transition-all duration-300 hover:opacity-90 hover:scale-[1.03] active:scale-[0.97] shadow-lg"
+                  style={{ background: "linear-gradient(to right, #0f172a, #0c4a6e)" }}
+                >
+                  Get in touch
+                  <ArrowRight className="h-5 w-5" />
+                </a>
                 <Button size="lg" variant="outline" asChild>
                   <a href="#projects">View projects</a>
                 </Button>

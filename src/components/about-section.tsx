@@ -59,11 +59,10 @@ export function AboutSection() {
                   <>
                     Currently, I'm a{" "}
                     <span className="text-foreground font-medium">
-                      Senior Full-stack Developer at Fanzeal Singapore
+                      Senior Full-stack Developer at Gianty VietNam
                     </span>
-                    , where I lead teams in building innovative platforms for sports
-                    and entertainment enthusiasts. I specialize in React, Next.js,
-                    Vue, Node.js, and AWS, with a strong focus on performance
+                    , where I work in building E-commerce platforms with B2B, B2C, B2B2C and ERP systems. I specialize in React, Next.js,
+                    Vue, Nest.js, and AWS, with a strong focus on performance
                     optimization and scalability.
                   </>
                 ) : (

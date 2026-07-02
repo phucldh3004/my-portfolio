@@ -96,7 +96,7 @@ export function ResumeSection() {
           viewport={{ once: true, margin: "-100px" }}
           className="text-center"
         >
-          <Card className="bg-gradient-to-br from-primary/10 via-purple-500/10 to-blue-500/10 backdrop-blur border-primary/20 max-w-2xl mx-auto">
+          <Card className="bg-gradient-to-br from-primary/10 via-black-500/10 to-blue-500/10 backdrop-blur border-primary/20 max-w-2xl mx-auto">
             <CardContent className="p-8 md:p-12">
               <div className="flex flex-col items-center gap-6">
                 <div className="w-20 h-20 rounded-full bg-primary/20 flex items-center justify-center">
@@ -110,14 +110,14 @@ export function ResumeSection() {
                     Get the full PDF version with detailed information about my
                     skills, experience, and achievements
                   </p>
-                  
+
                   {/* Clean semantic download anchor element */}
                   <Button
                     size="lg"
                     asChild
                     className="bg-primary hover:bg-primary/90 text-primary-foreground gap-2 group cursor-pointer"
                   >
-                    <a href="/VOVUDUC_RESUME.pdf" download="Le_Duong_Hoang_Phuc_Resume.pdf">
+                    <a href="/VOVUDUC_RESUME.pdf" download="Le-Duong-Hoang-Phuc-CV.pdf">
                       <Download className="w-5 h-5 group-hover:animate-bounce" />
                       Download Resume (PDF)
                     </a>

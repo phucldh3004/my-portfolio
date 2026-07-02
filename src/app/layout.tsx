@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   creator: profileData.fullName,
   icons: {
     icon: [
-      { url: "/avatar.jpg", sizes: "any", type: "image/jpeg" },
+      { url: "/avatar_phucldh.jpg", sizes: "any", type: "image/jpeg" },
     ],
   },
   openGraph: {
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     siteName: `${profileData.name} Portfolio`,
     images: [
       {
-        url: "/avatar.jpg",
+        url: "/avatar_phucldh.jpg",
         width: 1200,
         height: 630,
         alt: `${profileData.name} (${profileData.fullName}) - Senior Fullstack Developer`,
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: `${profileData.name} (${profileData.fullName}) - Senior Fullstack Developer`,
     description: "Senior Fullstack Developer with 5 years of experience in React, Next.js, Vue, Node.js, and AWS.",
-    images: ["/avatar.jpg"],
+    images: ["/avatar_phucldh.jpg"],
   },
   robots: {
     index: true,
@@ -77,7 +77,7 @@ export default function RootLayout({
               jobTitle: "Senior Fullstack Developer",
               description: "Senior Fullstack Developer with 5 years of experience specializing in React, Next.js, Vue, Node.js, NestJS, and AWS",
               url: "https://richard-vo.com",
-              image: "/avatar.jpg",
+              image: "/avatar_phucldh.jpg",
               email: profileData.email,
               telephone: profileData.phone,
               sameAs: [
