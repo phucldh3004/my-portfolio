@@ -48,7 +48,7 @@ export function SkillsSection() {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-sm uppercase tracking-wider text-muted-foreground">
+            <h2 className="text-base uppercase tracking-wider text-muted-foreground">
               Skills
             </h2>
           </motion.div>

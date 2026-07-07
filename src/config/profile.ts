@@ -60,7 +60,6 @@ export const profileData: ProfileData = {
       "Vue",
       "Next.js",
       "Nuxt",
-      "React Native",
     ],
     "Back End": [
       "Node.js",
@@ -120,7 +119,6 @@ export const profileData: ProfileData = {
         "Created reusable common components to streamline interface development.",
         "Integrated front-end applications with APIs and built Firebase Cloud Messaging (FCM) push notification features.",
         "Managed merge requests, performed deployments to multiple environments, and resolved code conflicts.",
-        "Fixed critical, high-priority, and hotfix bugs across the full stack.",
         "Participated in requirements discussion and agile processes, including task management and estimation.",
         "Supported team members with technical issues and algorithmic challenges.",
         "Implemented E2E testing using Playwright, reducing regression bugs by 30% and improving deployment confidence.",
@@ -133,19 +131,20 @@ export const profileData: ProfileData = {
     {
       period: "March 2025 - January 2026",
       company: "DIGITAL UNICORN",
-      role: "Frontend Developer",
+      role: "Fullstack Developer",
       type: "Freelancer",
       teamSize: 5,
       achievements: [
-        "Developed frontend applications for HKN and FMP Medical Center projects.",
+        "Developed full-stack web applications for HKN and FMP Medical Center projects.",
         "Designed pixel-perfect UI mapping closely to Figma design mockups.",
         "Integrated APIs and Firebase with backend systems and Strapi CMS.",
+        "Implemented backend APIs using NestJS.",
         "Utilized AI assistants (ChatGPT 4.0, Cursor, Claude) to optimize development speed and code quality."
       ],
-      tech: ["Vue.js 3", "JavaScript", "TypeScript", "D3.js", "Chart.js", "Strapi", "Firebase", "Figma"]
+      tech: ["Vue.js 3", "JavaScript", "TypeScript", "D3.js", "Chart.js", "NestJS", "Strapi", "Firebase", "Figma"]
     },
     {
-      period: "April 2023 - October 2023",
+      period: "April 2023 - December 2023",
       company: "Gianty VN",
       role: "Middle Frontend Developer / Scrum Master (R&D project)",
       type: "On-site",
@@ -158,7 +157,7 @@ export const profileData: ProfileData = {
         "Fixed critical, high-priority, and hotfix bugs in both frontend and backend code.",
         "Designed workflows, confirmed requirements with Business Analysts, and managed/estimated sprint tasks."
       ],
-      tech: ["Vue.js 2", "Nuxt.js 2", "Java", "Spring Boot", "MySQL", "GraphQL"]
+      tech: ["Vue.js 2", "Nuxt.js 2", "Java Spring Boot"]
     },
     {
       period: "August 2022 - April 2023",
@@ -171,11 +170,11 @@ export const profileData: ProfileData = {
         "Maintained system stability by resolving legacy code issues and bugs.",
         "Integrated APIs and resolved business logic bugs (e.g., coupon flow, payment flow)."
       ],
-      tech: ["Vue.js 2", "Nuxt 2", "GitHub"]
+      tech: ["Vue.js 2", "Nuxt.js 2"]
     },
     {
       period: "September 2021 - August 2022",
-      company: "FPT Software",
+      company: "FPT software HCM",
       role: "Frontend Developer (FUKUMA project)",
       type: "On-site",
       teamSize: 30,
@@ -184,12 +183,12 @@ export const profileData: ProfileData = {
         "Maintained legacy source code and resolved system-wide issues.",
         "Integrated backend APIs and fixed frontend-related bugs."
       ],
-      tech: ["Vue.js 2", "Vue.js 3", "Nuxt 3", "jQuery", "MySQL"]
+      tech: ["Vue.js 2", "Vue.js 3", "Nuxt.js 3", "jQuery", "MySQL", "GitHub"]
     },
     {
       period: "August 2021 - September 2021",
-      company: "FPT Software",
-      role: "Frontend Developer (HTCTOPE project)",
+      company: "FPT software HCM",
+      role: "Fullstack Developer (HTCTOPE project)",
       type: "On-site",
       teamSize: 20,
       achievements: [
@@ -197,11 +196,11 @@ export const profileData: ProfileData = {
         "Implemented new features and fixed bugs based on ticket specifications.",
         "Wrote test cases and performed manual testing."
       ],
-      tech: ["HTML", "CSS", "Bootstrap", "JavaScript", "jQuery", "Vue.js 2", "MySQL"]
+      tech: ["HTML", "CSS", "Bootstrap", "JavaScript", "jQuery", "Vue.js 2", "Java Spring Boot"]
     },
     {
       period: "January 2021 - August 2021",
-      company: "FPT Software",
+      company: "FPT software HCM",
       role: "Full-stack Developer (SENMONTEN project)",
       type: "On-site",
       teamSize: 50,
@@ -211,50 +210,70 @@ export const profileData: ProfileData = {
         "Developed a custom data checking tool using Java Spring Boot.",
         "Debugged and fixed full-stack bugs."
       ],
-      tech: ["Java", "Spring Boot", "JPA", "Hibernate", "Vue.js 2", "PostgreSQL"]
+      tech: ["Java Spring Boot", "JPA", "Hibernate", "Vue.js 2", "PostgreSQL"]
     },
     {
       period: "July-2020 - January 2021",
-      company: "FPT Software",
-      role: "Full-stack Developer (HINO project)",
+      company: "FPT software HCM",
+      role: "Backend Developer (HINO project)",
       type: "On-site",
       teamSize: 12,
       achievements: [
-        "Contributed to HINO project as a Full-stack Developer.",
         "Developed backend API endpoints using Java Spring Boot.",
-        "Designed reporting interfaces with Jasper Reports and frontend pages using Vue.js.",
-        "Implemented unit testing with JUnit to ensure code reliability."
+        "Integrated Jasper Reports and Vue.js framework components.",
+        "Implemented test automation using JUnit."
       ],
-      tech: ["Java", "Spring Boot", "JPA", "Hibernate", "Jasper Reports", "Vue.js 2", "PostgreSQL", "JUnit"]
+      tech: ["Java Spring Boot", "JPA", "Hibernate", "Jasper Reports", "Vue.js 2", "JUnit"]
     }
   ],
   projects: [
     {
-      title: "VFF Mobile App",
-      description: "A platform connecting Vietnamese football fans by enabling them to follow the national team's match schedule, purchase official merchandise, watch live broadcasts, and engage with posts.",
+      title: "GO Inc",
+      description: "GO is Japan’s leading mobility web and mobile platform that facilitates real-time taxi dispatching, seamless cashless payments (GO Pay), and on-demand ride-hailing services for millions of users.",
       features: [
-        "Native sign-in with Google, Facebook, and Apple",
-        "Apple In-App Purchases and OnePay integration",
-        "Adjust tracking integration for comprehensive analytics and attribution",
-        "Crashlytics implementation on Android for real-time crash reporting",
-        "Robust performance optimization handling 10,000+ concurrent users without crashes",
-        "Live streaming and social features",
-        "Performance optimization with lazy loading and virtualized lists"
+        "Developed new features and maintained legacy functionalities.",
+        "Successfully migrated a core web application from Nuxt 2 to Nuxt 4, improving Core Web Vitals (LCP/FID) by 25% and optimizing bundle size.",
+        "Optimized application responsiveness and reduced initial bundle size by implementing route-level Lazy Loading (page-based splitting) and dynamic component imports.",
+        "Utilized AI tools like Antigravity and Claude to accelerate development velocity."
       ],
-      tech: ["React Native", "Expo", "NestJS", "PostgreSQL", "Redis", "AWS"],
+      tech: [
+        "Vue.js",
+        "Nuxt.js",
+      ],
       links: [
-        {
-          label: "iOS App",
-          url: "https://apps.apple.com/vn/app/vff-app/id6744911455?l=vi"
-        },
-        {
-          label: "Android App",
-          url: "https://play.google.com/store/apps/details?id=vn.vff.app"
-        }
+        { label: "GO Inc", url: "https://go.goinc.jp/" },
       ]
     },
     {
-      title: "Fan Collectibles Platform",
+      title: "Nobinobi web",
+      description: "Nobinobi is an e-commerce web platform specializing in high-quality, Japanese-standard consumer goods, food, and maternity & baby products for the Vietnamese market",
+      features: [
+        "Delivered optimized web layouts for both B2C retail shoppers and B2B wholesale partners with custom pricing tiers",
+        "Ensured seamless, mobile-first shopping experiences across all desktop, tablet, and mobile browsers",
+        "Built high-performance product catalogs with multi-attribute filtering (brand, age group, categories)",
+        "Optimized Core Web Vitals, SSR (Server-Side Rendering), and metadata to maximize search engine visibility",
+        "Developed a robust admin dashboard to manage products, banners, promotional campaigns, multi-warehouse, and loyalty rewards",
+        "Maintained secure web-to-backend API integrations for seamless synchronization with the central ERP system",
+
+      ],
+      tech: ["Next.js", "Nest.js", "MongoDB", "AWS", "Redux", "Tailwind CSS"],
+      links: [
+        {
+          label: "Nobinobi web B2C",
+          url: "https://nobinobi.vn"
+        },
+        {
+          label: "Nobinobi web B2B",
+          url: "https://banhang.nobinobi.vn/"
+        },
+        {
+          label: "Nobinobi web B2B2C",
+          url: "https://retail.nobinobi.vn/"
+        },
+      ]
+    },
+    {
+      title: "",
       description: "A platform dedicated to bringing sports and entertainment enthusiasts closer to their passions through exclusive merchandise, memorabilia, and digital collectibles.",
       features: [
         "Hybrid authentication system (Web2 + Web3)",
@@ -277,29 +296,7 @@ export const profileData: ProfileData = {
         { label: "GNK Dinamo", url: "https://collectibles.gnkdinamo.hr" }
       ]
     },
-    {
-      title: "Viqualita",
-      description: "Workflow management and production automation platform for engineering firms, enabling seamless handling of individual orders.",
-      features: [
-        "Scalable backend system and database schema",
-        "Process thousands of orders under peak load",
-        "Responsive and intuitive user interface",
-        "Optimized database queries and caching"
-      ],
-      tech: ["Express.js", "Node.js", "Vue.js", "MongoDB", "AWS"],
-      links: []
-    },
-    {
-      title: "IoT Warehouse Management",
-      description: "Automated warehouse management system to track workforce hours and monitor production efficiency.",
-      features: [
-        "Real-time workforce tracking",
-        "Production efficiency monitoring",
-        "Automated reporting system",
-        "Performance optimization"
-      ],
-      tech: ["Express.js", "Node.js", "Vue.js", "MongoDB", "AWS"],
-      links: []
-    }
+
+
   ]
 };

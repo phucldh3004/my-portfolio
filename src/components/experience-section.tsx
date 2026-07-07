@@ -123,7 +123,7 @@ export function ExperienceSection() {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-sm uppercase tracking-widest text-muted-foreground mb-2">
+          <h2 className="text-base uppercase tracking-widest text-muted-foreground mb-2">
             Career Timeline
           </h2>
           <p className="text-2xl font-bold text-foreground">Experience</p>

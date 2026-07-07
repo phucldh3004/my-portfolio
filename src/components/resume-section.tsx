@@ -117,7 +117,7 @@ export function ResumeSection() {
                     asChild
                     className="bg-primary hover:bg-primary/90 text-primary-foreground gap-2 group cursor-pointer"
                   >
-                    <a href="/VOVUDUC_RESUME.pdf" download="Le-Duong-Hoang-Phuc-CV.pdf">
+                    <a href="/LeDuongHoangPhuc_CV.pdf" download="LeDuongHoangPhuc_CV.pdf">
                       <Download className="w-5 h-5 group-hover:animate-bounce" />
                       Download Resume (PDF)
                     </a>
