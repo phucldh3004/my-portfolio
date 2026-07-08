@@ -272,31 +272,6 @@ export const profileData: ProfileData = {
         },
       ]
     },
-    {
-      title: "",
-      description: "A platform dedicated to bringing sports and entertainment enthusiasts closer to their passions through exclusive merchandise, memorabilia, and digital collectibles.",
-      features: [
-        "Hybrid authentication system (Web2 + Web3)",
-        "Stripe and PayPal payment integration",
-        "Prediction tournament system",
-        "Server-side rendering for SEO optimization"
-      ],
-      tech: [
-        "React",
-        "Next.js",
-        "NestJS",
-        "PostgreSQL",
-        "Redis",
-        "Blockchain",
-        "AWS"
-      ],
-      links: [
-        { label: "VFB Collectible", url: "https://collectibles.vfb.de" },
-        { label: "African Legends", url: "https://aflc.fanzeal.com" },
-        { label: "GNK Dinamo", url: "https://collectibles.gnkdinamo.hr" }
-      ]
-    },
-
 
   ]
 };
