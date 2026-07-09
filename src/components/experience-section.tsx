@@ -1,8 +1,22 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { motion, Variants } from "framer-motion";
 import { profileData, Experience } from "@/config/profile";
 import { ExperienceCard } from "@/components/experience-card";
+
+/* ─── responsive hook ────────────────────────────────────────────── */
+function useIsMobile(breakpoint = 768) {
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const mq = window.matchMedia(`(max-width: ${breakpoint - 1}px)`);
+    setIsMobile(mq.matches);
+    const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+    mq.addEventListener("change", handler);
+    return () => mq.removeEventListener("change", handler);
+  }, [breakpoint]);
+  return isMobile;
+}
 
 /* ─── helpers ───────────────────────────────────────────────────── */
 
@@ -12,6 +26,12 @@ function parseDate(token: string): Date {
   const clean = token.replace(/-/g, " ").trim();
   const d = new Date(clean);
   return isNaN(d.getTime()) ? new Date(0) : d;
+}
+
+/** Deterministic "Mon YYYY" formatter — avoids toLocaleDateString locale mismatch between SSR and client. */
+const MONTH_ABBR = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+function formatMonthYear(d: Date): string {
+  return `${MONTH_ABBR[d.getMonth()]} ${d.getFullYear()}`;
 }
 
 function parsePeriod(period: string): { start: Date; end: Date } {
@@ -111,6 +131,7 @@ const connectorVariants: Variants = {
 /* ─── main section ───────────────────────────────────────────────── */
 export function ExperienceSection() {
   const rows = buildRows(profileData.experiences);
+  const isMobile = useIsMobile();
 
   return (
     <section id="experience" className="py-24 px-4 bg-muted/30">
@@ -143,10 +164,7 @@ export function ExperienceSection() {
           {rows.map((row, rowIdx) => {
             /* ── PAIR row ─────────────────────────────────────── */
             if (row.kind === "pair") {
-              const dotLabel = parsePeriod(row.left.period).start.toLocaleDateString("en-US", {
-                month: "short",
-                year: "numeric",
-              });
+              const dotLabel = formatMonthYear(parsePeriod(row.left.period).start);
               return (
                 <div key={rowIdx} className="w-full">
                   {/* Dot with date */}
@@ -155,21 +173,21 @@ export function ExperienceSection() {
                   </div>
 
                   {/* Left card — connector — Right card */}
-                  <div className="grid grid-cols-[1fr_auto_1fr] items-start gap-0 mb-10 md:mb-14">
+                  <div className="flex flex-col md:grid md:grid-cols-[1fr_auto_1fr] items-start gap-4 md:gap-0 mb-10 md:mb-14">
                     {/* Left */}
-                    <div className="pr-6 flex justify-end">
-                      <div className="w-full max-w-sm">
+                    <div className="md:pr-6 md:flex md:justify-end">
+                      <div className="w-full md:max-w-sm">
                         <ExperienceCard
                           exp={row.left}
                           index={row.leftIdx}
                           cardVariants={cardVariants}
-                          side="left"
+                          side={isMobile ? "right" : "left"}
                         />
                       </div>
                     </div>
 
-                    {/* Centre spine placeholder */}
-                    <div className="w-28 flex flex-col items-center pt-6">
+                    {/* Centre spine placeholder — hidden on mobile */}
+                    <div className="hidden md:flex w-28 flex-col items-center pt-6">
                       {/* Left connector */}
                       <motion.div
                         className="h-px w-full bg-border origin-right"
@@ -183,8 +201,8 @@ export function ExperienceSection() {
                     </div>
 
                     {/* Right */}
-                    <div className="pl-6 flex justify-start">
-                      <div className="w-full max-w-sm">
+                    <div className="w-full md:pl-6 md:flex md:justify-start">
+                      <div className="w-full md:max-w-sm">
                         <ExperienceCard
                           exp={row.right}
                           index={row.rightIdx}
@@ -199,10 +217,7 @@ export function ExperienceSection() {
             }
 
             /* ── SINGLE row ───────────────────────────────────── */
-            const dotLabel = parsePeriod(row.exp.period).start.toLocaleDateString("en-US", {
-              month: "short",
-              year: "numeric",
-            });
+            const dotLabel = formatMonthYear(parsePeriod(row.exp.period).start);
             // Alternate single jobs left / right for visual rhythm
             const side: "left" | "right" = rowIdx % 2 === 0 ? "left" : "right";
 
@@ -213,38 +228,38 @@ export function ExperienceSection() {
                   <TimelineDot label={dotLabel} />
                 </div>
 
-                <div className="grid grid-cols-[1fr_auto_1fr] items-start gap-0 mb-10 md:mb-14">
+                <div className="flex flex-col md:grid md:grid-cols-[1fr_auto_1fr] items-start gap-0 mb-10 md:mb-14">
                   {side === "left" ? (
                     <>
-                      <div className="pr-6 flex justify-end">
-                        <div className="w-full max-w-sm">
+                      <div className="w-full md:pr-6 md:flex md:justify-end">
+                        <div className="w-full md:max-w-sm">
                           <ExperienceCard
                             exp={row.exp}
                             index={row.index}
                             cardVariants={cardVariants}
-                            side="left"
+                            side={isMobile ? "right" : "left"}
                           />
                         </div>
                       </div>
-                      <div className="w-28 flex items-center justify-start pt-6">
+                      <div className="hidden md:flex w-28 items-center justify-start pt-6">
                         <motion.div
                           className="h-px w-full bg-border origin-right"
                           variants={connectorVariants}
                         />
                       </div>
-                      <div className="pl-6" />
+                      <div className="hidden md:block md:pl-6" />
                     </>
                   ) : (
                     <>
-                      <div className="pr-6" />
-                      <div className="w-28 flex items-center justify-end pt-6">
+                      <div className="hidden md:block md:pr-6" />
+                      <div className="hidden md:flex w-28 items-center justify-end pt-6">
                         <motion.div
                           className="h-px w-full bg-border origin-left"
                           variants={connectorVariants}
                         />
                       </div>
-                      <div className="pl-6 flex justify-start">
-                        <div className="w-full max-w-sm">
+                      <div className="w-full md:pl-6 md:flex md:justify-start">
+                        <div className="w-full md:max-w-sm">
                           <ExperienceCard
                             exp={row.exp}
                             index={row.index}
