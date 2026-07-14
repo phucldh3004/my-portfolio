@@ -20,10 +20,26 @@ function useIsMobile(breakpoint = 768) {
 
 /* ─── helpers ───────────────────────────────────────────────────── */
 
-/** Parse "Month YYYY" or "Month-YYYY" → Date (uses 1st of month) */
+/** Parse "Month YYYY" or "Month-YYYY" → Date (uses 1st of month).
+ *  Safari does NOT support new Date("July 2020") — we parse manually. */
+const MONTH_NAMES: Record<string, number> = {
+  january: 0, february: 1, march: 2, april: 3, may: 4, june: 5,
+  july: 6, august: 7, september: 8, october: 9, november: 10, december: 11,
+  jan: 0, feb: 1, mar: 2, apr: 3, jun: 5, jul: 6, aug: 7,
+  sep: 8, oct: 9, nov: 10, dec: 11,
+};
 function parseDate(token: string): Date {
   // normalise dash-separator → space  e.g. "July-2020" → "July 2020"
   const clean = token.replace(/-/g, " ").trim();
+  const parts = clean.split(/\s+/);
+  if (parts.length >= 2) {
+    const monthKey = parts[0].toLowerCase();
+    const year = parseInt(parts[1], 10);
+    if (monthKey in MONTH_NAMES && !isNaN(year)) {
+      return new Date(year, MONTH_NAMES[monthKey], 1);
+    }
+  }
+  // Fallback: try native parse (works on non-Safari for ISO strings)
   const d = new Date(clean);
   return isNaN(d.getTime()) ? new Date(0) : d;
 }
