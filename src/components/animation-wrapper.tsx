@@ -1,7 +1,8 @@
 "use client"
 
-import { useEffect, useRef, useState, type ReactNode } from "react"
+import { useRef, type ReactNode } from "react"
 import { motion, useInView, useAnimation } from "framer-motion"
+import { useEffect } from "react"
 
 interface AnimationWrapperProps {
   children: ReactNode
@@ -11,20 +12,15 @@ interface AnimationWrapperProps {
 }
 
 export function AnimationWrapper({ children, className = "", delay = 0, animation = "fadeUp" }: AnimationWrapperProps) {
-  const [mounted, setMounted] = useState(false)
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: "-50px" })
   const controls = useAnimation()
 
   useEffect(() => {
-    setMounted(true)
-  }, [])
-
-  useEffect(() => {
-    if (mounted && isInView) {
+    if (isInView) {
       controls.start("visible")
     }
-  }, [isInView, controls, mounted])
+  }, [isInView, controls])
 
   const variants = {
     fadeUp: {
@@ -47,15 +43,6 @@ export function AnimationWrapper({ children, className = "", delay = 0, animatio
       hidden: { opacity: 0, scale: 0.8 },
       visible: { opacity: 1, scale: 1 },
     },
-  }
-
-  // Render a plain div before hydration to avoid SSR/client mismatch (React #418)
-  if (!mounted) {
-    return (
-      <div ref={ref} className={className}>
-        {children}
-      </div>
-    )
   }
 
   return (

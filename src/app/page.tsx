@@ -11,7 +11,7 @@ import { SectionBackground } from "@/components/section-background";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-background w">
+    <main className="min-h-screen bg-background">
       <Navigation />
       <HeroSection />
 

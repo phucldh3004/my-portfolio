@@ -34,7 +34,7 @@ export function AboutSection() {
             className="space-y-2"
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: true, amount: 0.1 }}
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-base uppercase tracking-wider text-muted-foreground">
@@ -46,7 +46,7 @@ export function AboutSection() {
             className="space-y-6"
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: true, amount: 0.1 }}
             variants={containerVariants}
           >
             {profileData.bio.map((paragraph, index) => (
