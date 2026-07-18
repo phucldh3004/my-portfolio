@@ -157,7 +157,7 @@ export const profileData: ProfileData = {
         "Fixed critical, high-priority, and hotfix bugs in both frontend and backend code.",
         "Designed workflows, confirmed requirements with Business Analysts, and managed/estimated sprint tasks."
       ],
-      tech: ["Vue.js 2", "Nuxt.js 2", "Java Spring Boot"]
+      tech: ["Vue.js 3", "Nuxt.js 3", "Java Spring Boot"]
     },
     {
       period: "August 2022 - April 2023",
