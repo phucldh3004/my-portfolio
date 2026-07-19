@@ -40,7 +40,7 @@ export interface ProfileData {
 export const profileData: ProfileData = {
   name: "Hoang Phuc",
   fullName: "Lê Dương Hoàng Phúc",
-  title: "Fullstack Developer",
+  title: "Software Engineer / Senior Frontend Developer",
   email: "leduonghoangphuc3004@gmail.com",
   phone: "0886392505",
   github: "phucldh3004",
@@ -94,7 +94,7 @@ export const profileData: ProfileData = {
   },
   experiences: [
     {
-      period: "January 2026 - June 2026",
+      period: "January 2026 - Now",
       company: "Gianty VN",
       role: "Senior Frontend Developer (Go project)",
       type: "On-site",
@@ -157,7 +157,7 @@ export const profileData: ProfileData = {
         "Fixed critical, high-priority, and hotfix bugs in both frontend and backend code.",
         "Designed workflows, confirmed requirements with Business Analysts, and managed/estimated sprint tasks."
       ],
-      tech: ["Vue.js 3", "Nuxt.js 3", "Java Spring Boot"]
+      tech: ["Vue.js 2", "Nuxt.js 2", "Java Spring Boot"]
     },
     {
       period: "August 2022 - April 2023",
@@ -175,7 +175,7 @@ export const profileData: ProfileData = {
     {
       period: "September 2021 - August 2022",
       company: "FPT software HCM",
-      role: "Frontend Developer (FUKUMA project)",
+      role: "Junior Frontend Developer (FUKUMA project)",
       type: "On-site",
       teamSize: 30,
       achievements: [
@@ -188,7 +188,7 @@ export const profileData: ProfileData = {
     {
       period: "August 2021 - September 2021",
       company: "FPT software HCM",
-      role: "Fullstack Developer (HTCTOPE project)",
+      role: "Junior Frontend Developer / Fullstack Developer (HTCTOPE project)",
       type: "On-site",
       teamSize: 20,
       achievements: [
@@ -201,7 +201,7 @@ export const profileData: ProfileData = {
     {
       period: "January 2021 - August 2021",
       company: "FPT software HCM",
-      role: "Full-stack Developer (SENMONTEN project)",
+      role: "Fullstack Developer (SENMONTEN project)",
       type: "On-site",
       teamSize: 50,
       achievements: [
@@ -213,7 +213,7 @@ export const profileData: ProfileData = {
       tech: ["Java Spring Boot", "JPA", "Hibernate", "Vue.js 2", "PostgreSQL"]
     },
     {
-      period: "July-2020 - January 2021",
+      period: "July 2020 - January 2021",
       company: "FPT software HCM",
       role: "Backend Developer (HINO project)",
       type: "On-site",
