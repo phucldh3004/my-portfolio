@@ -71,20 +71,20 @@ export const profileData: ProfileData = {
       "Prisma",
       "Mongoose"
     ],
-    "Cloud & AWS": [
-      "S3",
-      "Fargate",
-      "Lightsail",
-      "EC2",
-      "ECR",
-      "VPC",
-      "Route53",
-      "Lambda",
-      "EBS",
-      "Cognito",
-      "SQS",
-      "SES"
-    ],
+    // "Cloud & AWS": [
+    //   "S3",
+    //   "Fargate",
+    //   "Lightsail",
+    //   "EC2",
+    //   "ECR",
+    //   "VPC",
+    //   "Route53",
+    //   "Lambda",
+    //   "EBS",
+    //   "Cognito",
+    //   "SQS",
+    //   "SES"
+    // ],
     "Other": [
       "Docker",
       "GitHub CI/CD",
