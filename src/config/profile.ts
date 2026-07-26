@@ -54,42 +54,32 @@ export const profileData: ProfileData = {
   ],
   skills: {
     "Front End": [
-      "JavaScript",
+      "JavaScript (ES6+)",
       "TypeScript",
-      "React",
-      "Vue",
+      "React.js",
       "Next.js",
-      "Nuxt",
+      "Redux",
+      "Vue.js 2/3/4",
+      "Nuxt.js 2/3/4",
+      "HTML5 / CSS3"
     ],
     "Back End": [
       "Node.js",
-      "Express",
       "NestJS",
+      "Java Spring Boot",
       "PostgreSQL",
       "MySQL",
-      "MongoDB",
-      "Prisma",
-      "Mongoose"
+      "MongoDB"
     ],
-    // "Cloud & AWS": [
-    //   "S3",
-    //   "Fargate",
-    //   "Lightsail",
-    //   "EC2",
-    //   "ECR",
-    //   "VPC",
-    //   "Route53",
-    //   "Lambda",
-    //   "EBS",
-    //   "Cognito",
-    //   "SQS",
-    //   "SES"
-    // ],
-    "Other": [
+    "Tools & Design": [
+      "Figma",
+      "Adobe XD",
       "Docker",
-      "GitHub CI/CD",
-      "Bitbucket Pipeline",
-      "Git"
+      "Git",
+      "GitHub / GitLab",
+      "Jira / Backlog / Redmine",
+      "Playwright",
+      "Firebase"
     ]
   },
   experiences: [
@@ -102,60 +92,54 @@ export const profileData: ProfileData = {
       achievements: [
         "Developed new features and maintained legacy functionalities.",
         "Successfully migrated a core web application from Nuxt 2 to Nuxt 4, improving Core Web Vitals (LCP/FID) by 25% and optimizing bundle size.",
-        "Optimized application responsiveness and reduced initial bundle size by implementing route-level Lazy Loading (page-based splitting) and dynamic component imports.",
-        "Utilized AI tools like Antigravity and Claude to accelerate development velocity."
+        "Optimized application responsiveness and reduced initial bundle size by implementing route-level Lazy Loading (page-based splitting) and dynamic component imports."
       ],
-      tech: ["Vue.js 2", "Vue.js 3", "Nuxt 2", "Nuxt 4", "Figma", "Stitch (Google AI)"]
+      tech: ["Vue.js 2", "Vue.js 3", "Nuxt.js 2", "Nuxt.js 4"]
     },
     {
-      period: "September 2023 - January 2026",
+      period: "August 2023 - January 2026",
       company: "Gianty VN",
       role: "Senior Frontend Developer / Software Engineer (NobiNobi project)",
       type: "On-site",
       teamSize: 12,
       achievements: [
         "Selected technology stack and initialized frontend source codebase.",
-        "Developed UI features and functional handlers, including common shared utilities.",
-        "Created reusable common components to streamline interface development.",
-        "Integrated front-end applications with APIs and built Firebase Cloud Messaging (FCM) push notification features.",
-        "Managed merge requests, performed deployments to multiple environments, and resolved code conflicts.",
-        "Participated in requirements discussion and agile processes, including task management and estimation.",
-        "Supported team members with technical issues and algorithmic challenges.",
+        "Developed UI features and integrated with APIs, including implementing core and common shared components.",
+        "Implemented backend APIs using NestJS.",
+        "Integrated Firebase Cloud Messaging (FCM) for push notification features.",
+        "Worked on e-commerce systems including B2C, B2B, B2B2C web platforms, and ERP modules (Sales, Users, Multi-warehouse, Promotions, Products, Affiliate, E-KYC, etc.).",
+        "Developed B2C web affiliate programs (similar to Shopee model), loyalty platforms, and gamification campaigns.",
         "Implemented E2E testing using Playwright, reducing regression bugs by 30% and improving deployment confidence.",
-        "Worked on B2C, B2B, B2B2C, and ERP platforms for the company.",
-        "Optimized initial page load times and bundle sizes by implementing route-level Lazy Loading and dynamic Next.js imports.",
-        "Developed backend APIs and leveraged AI tools (ChatGPT 4.0, Cursor, Claude) to speed up delivery."
+        "Optimized initial page load times and code splitting by implementing lazy loading via Next.js dynamic imports, significantly reducing bundle size and improving UX."
       ],
-      tech: ["React", "Next.js", "Node.js", "NestJS", "Ant Design", "TypeScript", "Strapi", "Firebase", "Playwright", "Figma"]
+      tech: ["React.js", "Next.js", "Node.js", "NestJS", "Ant Design", "TypeScript", "Firebase", "Playwright", "Figma"]
     },
     {
-      period: "March 2025 - January 2026",
+      period: "January 2025 - January 2026",
       company: "DIGITAL UNICORN",
       role: "Fullstack Developer",
       type: "Freelancer",
       teamSize: 5,
       achievements: [
-        "Developed full-stack web applications for HKN and FMP Medical Center projects.",
-        "Designed pixel-perfect UI mapping closely to Figma design mockups.",
-        "Integrated APIs and Firebase with backend systems and Strapi CMS.",
-        "Implemented backend APIs using NestJS.",
-        "Utilized AI assistants (ChatGPT 4.0, Cursor, Claude) to optimize development speed and code quality."
+        "Built CMS website for HKN project with pixel-perfect UI matching Figma designs.",
+        "Built website for FMP Medical Center project with pixel-perfect UI matching Figma designs.",
+        "Developed full-stack features using Vue.js 3 with NestJS and Strapi CMS.",
+        "Integrated D3.js and Chart.js for data visualization dashboards."
       ],
-      tech: ["Vue.js 3", "JavaScript", "TypeScript", "D3.js", "Chart.js", "NestJS", "Strapi", "Firebase", "Figma"]
+      tech: ["Vue.js 3", "JavaScript", "TypeScript", "D3.js", "Chart.js", "NestJS", "Strapi", "Figma"]
     },
     {
-      period: "April 2023 - December 2023",
+      period: "April 2023 - September 2023",
       company: "Gianty VN",
-      role: "Middle Frontend Developer / Scrum Master (R&D project)",
+      role: "Middle Frontend Developer / Software Engineer (R&D project)",
       type: "On-site",
       teamSize: 6,
       achievements: [
-        "Served as Project Leader and Scrum Master for the R&D project.",
-        "Selected technical stacks and initialized project code repositories.",
-        "Developed UI interfaces, core functional logic, and reusable components.",
-        "Integrated backend APIs and built login flows with OAuth2 authentication.",
-        "Fixed critical, high-priority, and hotfix bugs in both frontend and backend code.",
-        "Designed workflows, confirmed requirements with Business Analysts, and managed/estimated sprint tasks."
+        "Selected technology stack and initialized frontend source codebase.",
+        "Developed UI interfaces, core functional logic, and reusable common components.",
+        "Implemented backend APIs using Java Spring Boot.",
+        "Integrated OAuth2 login authentication flow.",
+        "Managed and estimated tasks following agile development processes."
       ],
       tech: ["Vue.js 2", "Nuxt.js 2", "Java Spring Boot"]
     },
@@ -166,64 +150,49 @@ export const profileData: ProfileData = {
       type: "On-site",
       teamSize: 12,
       achievements: [
-        "Developed UI and functional logic for SBworks project.",
-        "Maintained system stability by resolving legacy code issues and bugs.",
-        "Integrated APIs and resolved business logic bugs (e.g., coupon flow, payment flow)."
+        "Developed UI and integrated with APIs.",
+        "Maintained system stability by resolving legacy source code issues.",
+        "Fixed bugs in business logic flows (e.g., coupon flow, payment flow)."
       ],
       tech: ["Vue.js 2", "Nuxt.js 2"]
     },
     {
-      period: "September 2021 - August 2022",
-      company: "FPT software HCM",
+      period: "August 2021 - August 2022",
+      company: "FPT Software HCM",
       role: "Junior Frontend Developer (FUKUMA project)",
       type: "On-site",
       teamSize: 30,
       achievements: [
-        "Developed user interfaces and functional logic for FUKUMA project.",
-        "Maintained legacy source code and resolved system-wide issues.",
-        "Integrated backend APIs and fixed frontend-related bugs."
+        "Developed user interfaces and integrated with backend APIs.",
+        "Maintained legacy source code and resolved system-wide issues."
       ],
-      tech: ["Vue.js 2", "Vue.js 3", "Nuxt.js 3", "jQuery", "MySQL", "GitHub"]
+      tech: ["Vue.js 2", "Vue.js 3", "Nuxt.js 3", "jQuery"]
     },
     {
-      period: "August 2021 - September 2021",
-      company: "FPT software HCM",
+      period: "July 2021 - August 2021",
+      company: "FPT Software HCM",
       role: "Junior Frontend Developer / Fullstack Developer (HTCTOPE project)",
       type: "On-site",
       teamSize: 20,
       achievements: [
-        "Contributed to HTCTOPE project by migrating UI integration from Internet Explorer to Microsoft Edge.",
-        "Implemented new features and fixed bugs based on ticket specifications.",
+        "Migrated UI integration from Internet Explorer to Microsoft Edge.",
+        "Implemented new feature tickets and fixed bugs.",
         "Wrote test cases and performed manual testing."
       ],
       tech: ["HTML", "CSS", "Bootstrap", "JavaScript", "jQuery", "Vue.js 2", "Java Spring Boot"]
     },
     {
-      period: "January 2021 - August 2021",
-      company: "FPT software HCM",
+      period: "July 2020 - September 2021",
+      company: "FPT Software HCM",
       role: "Fullstack Developer (SENMONTEN project)",
       type: "On-site",
       teamSize: 50,
       achievements: [
-        "Developed business functions and frontend/backend components for SENMONTEN project.",
-        "Created database migration tools, managed PostgreSQL databases, and wrote dummy data script generators.",
-        "Developed a custom data checking tool using Java Spring Boot.",
-        "Debugged and fixed full-stack bugs."
+        "Developed common frontend functions and reusable components.",
+        "Wrote dummy data tools, migrated and managed PostgreSQL databases.",
+        "Implemented backend APIs using Java Spring Boot (JPA, Hibernate)."
       ],
       tech: ["Java Spring Boot", "JPA", "Hibernate", "Vue.js 2", "PostgreSQL"]
-    },
-    {
-      period: "July 2020 - January 2021",
-      company: "FPT software HCM",
-      role: "Backend Developer (HINO project)",
-      type: "On-site",
-      teamSize: 12,
-      achievements: [
-        "Developed backend API endpoints using Java Spring Boot.",
-        "Integrated Jasper Reports and Vue.js framework components.",
-        "Implemented test automation using JUnit."
-      ],
-      tech: ["Java Spring Boot", "JPA", "Hibernate", "Jasper Reports", "Vue.js 2", "JUnit"]
     }
   ],
   projects: [
