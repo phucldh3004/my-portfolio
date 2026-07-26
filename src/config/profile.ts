@@ -221,9 +221,9 @@ export const profileData: ProfileData = {
         "Ensured seamless, mobile-first shopping experiences across all desktop, tablet, and mobile browsers",
         "Built high-performance product catalogs with multi-attribute filtering (brand, age group, categories)",
         "Optimized Core Web Vitals, SSR (Server-Side Rendering), and metadata to maximize search engine visibility",
-        "Developed a robust admin dashboard to manage products, banners, promotional campaigns, multi-warehouse, and loyalty rewards",
-        "Maintained secure web-to-backend API integrations for seamless synchronization with the central ERP system",
-
+        "ERP System Development & API Integration: Built robust admin dashboards and secure web-to-backend APIs for real-time synchronization with central ERP systems, managing core modules including Products, Multi-warehouse, Sales, Users, E-KYC, and Promotions  .",
+        "E-Commerce Platforms & User Engagement Features: Developed scalable B2C, B2B, and B2B2C web platforms incorporating Shopee-style Affiliate programs, Loyalty reward systems, and Gamification campaigns.",
+        "Integrated Firebase Cloud Messaging (FCM) for push notification features.",
       ],
       tech: ["Next.js", "Nest.js", "MongoDB", "AWS", "Redux", "Tailwind CSS"],
       links: [
