@@ -8,8 +8,8 @@ const inter = Inter({ subsets: ["latin"] });
 const jetbrainsMono = JetBrains_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: `${profileData.name} (${profileData.fullName}) - Senior Fullstack Developer | React, Next.js, Node.js Expert`,
-  description: `Senior Fullstack Developer with 5 years of experience specializing in React, Next.js, Vue, Node.js, NestJS, and AWS. Led teams building blockchain collectibles, mobile apps, and enterprise systems.`,
+  title: `${profileData.name} (${profileData.fullName}) - Senior Frontend Developer / Software Engineer | React, Next.js, Vue, Node.js, NestJS, and AWS`,
+  description: `Senior Frontend Developer / Software Engineer with 5 years of experience specializing in React, Next.js, Vue, Node.js, NestJS, and AWS. Led teams building blockchain collectibles, mobile apps, and enterprise systems.`,
   keywords: [
     "Fullstack Developer",
     "React Developer",
@@ -34,22 +34,22 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://richard-vo.com",
-    title: `${profileData.name} (${profileData.fullName}) - Senior Fullstack Developer`,
-    description: "Senior Fullstack Developer with 5 years of experience specializing in React, Next.js, Vue, Node.js, and AWS.",
+    title: `${profileData.name} (${profileData.fullName}) - Senior Frontend Developer / Software Engineer`,
+    description: "Senior Frontend Developer / Software Engineer with 5 years of experience specializing in React, Next.js, Vue, Node.js, and AWS.",
     siteName: `${profileData.name} Portfolio`,
     images: [
       {
         url: "/avatar_phucldh.jpg",
         width: 1200,
         height: 630,
-        alt: `${profileData.name} (${profileData.fullName}) - Senior Fullstack Developer`,
+        alt: `${profileData.name} (${profileData.fullName}) - Senior Frontend Developer / Software Engineer`,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${profileData.name} (${profileData.fullName}) - Senior Fullstack Developer`,
-    description: "Senior Fullstack Developer with 5 years of experience in React, Next.js, Vue, Node.js, and AWS.",
+    title: `${profileData.name} (${profileData.fullName}) - Senior Frontend Developer / Software Engineer`,
+    description: "Senior Frontend Developer / Software Engineer with 5 years of experience in React, Next.js, Vue, Node.js, and AWS.",
     images: ["/avatar_phucldh.jpg"],
   },
   robots: {
@@ -74,8 +74,8 @@ export default function RootLayout({
               "@type": "Person",
               name: profileData.fullName,
               alternateName: profileData.name,
-              jobTitle: "Senior Fullstack Developer",
-              description: "Senior Fullstack Developer with 5 years of experience specializing in React, Next.js, Vue, Node.js, NestJS, and AWS",
+              jobTitle: "Senior Frontend Developer / Software Engineer",
+              description: "Senior Frontend Developer / Software Engineer with 5 years of experience specializing in React, Next.js, Vue, Node.js, NestJS, and AWS",
               url: "https://richard-vo.com",
               image: "/avatar_phucldh.jpg",
               email: profileData.email,
