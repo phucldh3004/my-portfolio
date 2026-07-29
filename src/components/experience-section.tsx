@@ -1,302 +1,172 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { motion, Variants } from "framer-motion";
-import { profileData, Experience } from "@/config/profile";
-import { ExperienceCard } from "@/components/experience-card";
+import { motion } from "framer-motion";
+import { profileData } from "@/config/profile";
+import { Card } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 
-/* ─── responsive hook ────────────────────────────────────────────── */
-function useIsMobile(breakpoint = 768) {
-  const [isMobile, setIsMobile] = useState(false);
-  useEffect(() => {
-    const mq = window.matchMedia(`(max-width: ${breakpoint - 1}px)`);
-    setIsMobile(mq.matches);
-    const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
-    mq.addEventListener("change", handler);
-    return () => mq.removeEventListener("change", handler);
-  }, [breakpoint]);
-  return isMobile;
-}
-
-/* ─── helpers ───────────────────────────────────────────────────── */
-
-/** Parse "Month YYYY" or "Month-YYYY" → Date (uses 1st of month).
- *  Safari does NOT support new Date("July 2020") — we parse manually. */
-const MONTH_NAMES: Record<string, number> = {
-  january: 0, february: 1, march: 2, april: 3, may: 4, june: 5,
-  july: 6, august: 7, september: 8, october: 9, november: 10, december: 11,
-  jan: 0, feb: 1, mar: 2, apr: 3, jun: 5, jul: 6, aug: 7,
-  sep: 8, oct: 9, nov: 10, dec: 11,
-};
-function parseDate(token: string): Date {
-  // normalise dash-separator → space  e.g. "July-2020" → "July 2020"
-  const clean = token.replace(/-/g, " ").trim();
-  const parts = clean.split(/\s+/);
-  if (parts.length >= 2) {
-    const monthKey = parts[0].toLowerCase();
-    const year = parseInt(parts[1], 10);
-    if (monthKey in MONTH_NAMES && !isNaN(year)) {
-      return new Date(year, MONTH_NAMES[monthKey], 1);
-    }
-  }
-  // Fallback: try native parse (works on non-Safari for ISO strings)
-  const d = new Date(clean);
-  return isNaN(d.getTime()) ? new Date(0) : d;
-}
-
-/** Deterministic "Mon YYYY" formatter — avoids toLocaleDateString locale mismatch between SSR and client. */
-const MONTH_ABBR = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-function formatMonthYear(d: Date): string {
-  return `${MONTH_ABBR[d.getMonth()]} ${d.getFullYear()}`;
-}
-
-function parsePeriod(period: string): { start: Date; end: Date } {
-  const parts = period.split(" - ").map((s) => s.trim());
-  const start = parseDate(parts[0]);
-  const end =
-    parts[1] && parts[1].toLowerCase() !== "present"
-      ? parseDate(parts[1])
-      : new Date(); // treat "Present" as today
-  return { start, end };
-}
-
-function periodsOverlap(a: Experience, b: Experience): boolean {
-  const pa = parsePeriod(a.period);
-  const pb = parsePeriod(b.period);
-  return pa.start < pb.end && pb.start < pa.end;
-}
-
-/**
- * Build timeline rows.
- * - Single jobs occupy the full row (both cols null-ed).
- * - A pair of overlapping jobs shares one row (left / right).
- */
-type TimelineRow =
-  | { kind: "single"; exp: Experience; index: number }
-  | { kind: "pair"; left: Experience; leftIdx: number; right: Experience; rightIdx: number };
-
-function buildRows(exps: Experience[]): TimelineRow[] {
-  const used = new Set<number>();
-  const rows: TimelineRow[] = [];
-
-  for (let i = 0; i < exps.length; i++) {
-    if (used.has(i)) continue;
-
-    // Look ahead for first overlapping un-used sibling
-    let paired = -1;
-    for (let j = i + 1; j < exps.length; j++) {
-      if (!used.has(j) && periodsOverlap(exps[i], exps[j])) {
-        paired = j;
-        break;
-      }
-    }
-
-    if (paired !== -1) {
-      used.add(i);
-      used.add(paired);
-      rows.push({
-        kind: "pair",
-        left: exps[i],
-        leftIdx: i,
-        right: exps[paired],
-        rightIdx: paired,
-      });
-    } else {
-      used.add(i);
-      rows.push({ kind: "single", exp: exps[i], index: i });
-    }
-  }
-
-  return rows;
-}
-
-/* ─── dot label on the centre spine ─────────────────────────────── */
-function TimelineDot({ label }: { label: string }) {
-  return (
-    <div className="flex flex-col items-center shrink-0 w-28 select-none">
-      <div className="relative flex flex-col items-center">
-        <div className="w-3.5 h-3.5 rounded-full border-2 border-primary bg-background z-10 shadow-[0_0_8px_2px_hsl(var(--primary)/0.4)]" />
-        <p className="text-[11px] text-muted-foreground font-medium mt-1 whitespace-nowrap">
-          {label}
-        </p>
-      </div>
-    </div>
-  );
-}
-
-/* ─── animation variants ─────────────────────────────────────────── */
-const containerVariants: Variants = {
-  hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { staggerChildren: 0.15 } },
-};
-
-const cardVariants: Variants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] as any },
-  },
-};
-
-const connectorVariants: Variants = {
-  hidden: { scaleX: 0 },
-  visible: { scaleX: 1, transition: { duration: 0.4, ease: "easeOut" } },
-};
-
-/* ─── main section ───────────────────────────────────────────────── */
 export function ExperienceSection() {
-  const rows = buildRows(profileData.experiences);
-  const isMobile = useIsMobile();
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.15 },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 40 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] as any },
+    },
+  };
+
+  const cardContentVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.1, delayChildren: 0.2 },
+    },
+  };
+
+  const headerVariants = {
+    hidden: { opacity: 0, y: -10 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] as any },
+    },
+  };
+
+  const achievementVariants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { staggerChildren: 0.08 } },
+  };
+
+  const achievementItemVariants = {
+    hidden: { opacity: 0, x: -10 },
+    visible: { opacity: 1, x: 0, transition: { duration: 0.4 } },
+  };
+
+  const techVariants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { staggerChildren: 0.05 } },
+  };
+
+  const techItemVariants = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: { opacity: 1, scale: 1, transition: { duration: 0.3 } },
+  };
+
+  const typeColorMap: Record<string, string> = {
+    "On-site": "text-blue-400",
+    "Hybrid": "text-violet-400",
+    "Freelancer": "text-amber-400",
+    "Remote": "text-emerald-400",
+  };
 
   return (
     <section id="experience" className="py-24 px-4 bg-muted/30">
-      <div className="container mx-auto max-w-6xl">
-        {/* Section heading */}
-        <motion.div
-          className="mb-16 text-center"
-          initial={{ opacity: 0, y: -16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
-        >
-          <h2 className="text-base uppercase tracking-widest text-muted-foreground mb-2">
-            Career Timeline
-          </h2>
-          <p className="text-2xl font-bold text-foreground">Experience</p>
-        </motion.div>
+      <div className="container mx-auto max-w-5xl">
+        <div className="grid md:grid-cols-[200px_1fr] gap-12">
+          <motion.div
+            className="space-y-2"
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="text-base uppercase tracking-wider text-muted-foreground">
+              Career Timeline
+            </h2>
+            <p className="text-2xl font-bold text-foreground">Experience</p>
+          </motion.div>
 
-        {/* Timeline */}
-        <motion.div
-          className="relative flex flex-col items-center gap-0"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
-          variants={containerVariants}
-        >
-          {/* Vertical spine */}
-          <div className="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-px bg-gradient-to-b from-primary/60 via-border to-transparent pointer-events-none" />
-
-          {rows.map((row, rowIdx) => {
-            /* ── PAIR row ─────────────────────────────────────── */
-            if (row.kind === "pair") {
-              const dotLabel = formatMonthYear(parsePeriod(row.left.period).start);
-              return (
-                <div key={rowIdx} className="w-full">
-                  {/* Dot with date */}
-                  <div className="flex justify-center mb-4">
-                    <TimelineDot label={dotLabel} />
-                  </div>
-
-                  {/* Left card — connector — Right card */}
-                  <div className="flex flex-col md:grid md:grid-cols-[1fr_auto_1fr] items-start gap-4 md:gap-0 mb-10 md:mb-14">
-                    {/* Left */}
-                    <div className="md:pr-6 md:flex md:justify-end">
-                      <div className="w-full md:max-w-sm">
-                        <ExperienceCard
-                          exp={row.left}
-                          index={row.leftIdx}
-                          cardVariants={cardVariants}
-                          side={isMobile ? "right" : "left"}
-                        />
-                      </div>
-                    </div>
-
-                    {/* Centre spine placeholder — hidden on mobile */}
-                    <div className="hidden md:flex w-28 flex-col items-center pt-6">
-                      {/* Left connector */}
-                      <motion.div
-                        className="h-px w-full bg-border origin-right"
-                        variants={connectorVariants}
-                      />
-                      {/* Right connector */}
-                      <motion.div
-                        className="h-px w-full bg-border origin-left mt-0"
-                        variants={connectorVariants}
-                      />
-                    </div>
-
-                    {/* Right */}
-                    <div className="w-full md:pl-6 md:flex md:justify-start">
-                      <div className="w-full md:max-w-sm">
-                        <ExperienceCard
-                          exp={row.right}
-                          index={row.rightIdx}
-                          cardVariants={cardVariants}
-                          side="right"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              );
-            }
-
-            /* ── SINGLE row ───────────────────────────────────── */
-            const dotLabel = formatMonthYear(parsePeriod(row.exp.period).start);
-            // Alternate single jobs left / right for visual rhythm
-            const side: "left" | "right" = rowIdx % 2 === 0 ? "left" : "right";
-
-            return (
-              <div key={rowIdx} className="w-full">
-                {/* Dot */}
-                <div className="flex justify-center mb-4">
-                  <TimelineDot label={dotLabel} />
-                </div>
-
-                <div className="flex flex-col md:grid md:grid-cols-[1fr_auto_1fr] items-start gap-0 mb-10 md:mb-14">
-                  {side === "left" ? (
-                    <>
-                      <div className="w-full md:pr-6 md:flex md:justify-end">
-                        <div className="w-full md:max-w-sm">
-                          <ExperienceCard
-                            exp={row.exp}
-                            index={row.index}
-                            cardVariants={cardVariants}
-                            side={isMobile ? "right" : "left"}
-                          />
+          <motion.div
+            className="space-y-8"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={containerVariants}
+          >
+            {profileData.experiences.length === 0 ? (
+              <motion.p
+                variants={itemVariants}
+                className="text-muted-foreground text-sm"
+              >
+                No experience entries.
+              </motion.p>
+            ) : (
+              profileData.experiences.map((exp, index) => (
+                <motion.div key={index} variants={itemVariants}>
+                  <Card className="p-6 space-y-4 border-border bg-card hover:shadow-lg hover:scale-[1.02] transition-all duration-300 overflow-hidden">
+                    <motion.div
+                      initial="hidden"
+                      whileInView="visible"
+                      viewport={{ once: true, amount: 0.3 }}
+                      variants={cardContentVariants}
+                    >
+                      <motion.div className="space-y-2" variants={headerVariants}>
+                        <div className="flex items-start justify-between flex-wrap gap-2">
+                          <div>
+                            <span className={`text-xs font-semibold uppercase tracking-widest ${typeColorMap[exp.type] ?? "text-muted-foreground"}`}>
+                              {exp.type}
+                            </span>
+                            <h3 className="text-xl font-semibold text-foreground">
+                              {exp.role}
+                            </h3>
+                            <p className="text-muted-foreground leading-relaxed">
+                              {exp.company}
+                            </p>
+                          </div>
+                          <Badge variant="secondary" className="text-xs shrink-0">
+                            {exp.period}
+                          </Badge>
                         </div>
-                      </div>
-                      <div className="hidden md:flex w-28 items-center justify-start pt-6">
-                        <motion.div
-                          className="h-px w-full bg-border origin-right"
-                          variants={connectorVariants}
-                        />
-                      </div>
-                      <div className="hidden md:block md:pl-6" />
-                    </>
-                  ) : (
-                    <>
-                      <div className="hidden md:block md:pr-6" />
-                      <div className="hidden md:flex w-28 items-center justify-end pt-6">
-                        <motion.div
-                          className="h-px w-full bg-border origin-left"
-                          variants={connectorVariants}
-                        />
-                      </div>
-                      <div className="w-full md:pl-6 md:flex md:justify-start">
-                        <div className="w-full md:max-w-sm">
-                          <ExperienceCard
-                            exp={row.exp}
-                            index={row.index}
-                            cardVariants={cardVariants}
-                            side="right"
-                          />
-                        </div>
-                      </div>
-                    </>
-                  )}
-                </div>
-              </div>
-            );
-          })}
+                      </motion.div>
 
-          {/* End cap */}
-          <div className="flex flex-col items-center gap-1 mt-2">
-            <div className="w-2.5 h-2.5 rounded-full bg-primary/40" />
-            <p className="text-xs text-muted-foreground">Jul 2020</p>
-          </div>
-        </motion.div>
+                      <motion.div variants={headerVariants} className="mt-4">
+                        <h4 className="text-sm font-medium text-foreground mb-2">
+                          Key Achievements:
+                        </h4>
+                        <motion.ul
+                          className="space-y-1 text-sm text-muted-foreground"
+                          variants={achievementVariants}
+                        >
+                          {exp.achievements.map((achievement, i) => (
+                            <motion.li
+                              key={i}
+                              className="flex gap-2"
+                              variants={achievementItemVariants}
+                            >
+                              <span className="text-accent">•</span>
+                              <span>{achievement}</span>
+                            </motion.li>
+                          ))}
+                        </motion.ul>
+                      </motion.div>
+
+                      <motion.div className="flex flex-wrap gap-2 mt-4" variants={techVariants}>
+                        {exp.tech.map((tech, i) => (
+                          <motion.div key={i} variants={techItemVariants}>
+                            <Badge
+                              variant="outline"
+                              className="text-xs hover:scale-110 transition-transform"
+                            >
+                              {tech}
+                            </Badge>
+                          </motion.div>
+                        ))}
+                      </motion.div>
+                    </motion.div>
+                  </Card>
+                </motion.div>
+              ))
+            )}
+          </motion.div>
+        </div>
       </div>
     </section>
   );

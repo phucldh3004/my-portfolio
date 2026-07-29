@@ -21,17 +21,19 @@ export default function Home() {
         </SectionBackground>
       </AnimationWrapper>
 
+      <AnimationWrapper delay={200} animation="fadeUp">
+        <SectionBackground variant="gradient">
+          <SkillsSection />
+        </SectionBackground>
+      </AnimationWrapper>
+
       <AnimationWrapper delay={150} animation="slideLeft">
         <SectionBackground variant="accent">
           <ExperienceSection />
         </SectionBackground>
       </AnimationWrapper>
 
-      <AnimationWrapper delay={200} animation="fadeUp">
-        <SectionBackground variant="gradient">
-          <SkillsSection />
-        </SectionBackground>
-      </AnimationWrapper>
+
 
       <AnimationWrapper delay={250} animation="slideRight">
         <SectionBackground variant="accent">
