@@ -51,9 +51,9 @@ export const profileData: ProfileData = {
   githubUrl: "https://github.com/phucldh3004",
   linkedinUrl: "https://www.linkedin.com/in/phucldh3004/",
   bio: [
-    "A Technical Senior Frontend Developer with over 5 years of experience in building scalable web applications using React/Next.js and Vue/Nuxt.js.",
-    "Aiming to leverage strong leadership skills and full-stack expertise to drive technical excellence, optimize system performance, and mentor engineering teams in a professional global environment.",
-    "Seeking to transition into a Frontend Architect/Senior Fullstack role in the near future."
+    "Senior Frontend Engineer with 5+ years of experience specializing in React.js, Next.js, Vue.js, and Nuxt.js ecosystems.",
+    "Proven track record in optimizing web performance (improving Core Web Vitals by 25%), leading core framework migrations, and architecting scalable B2B/B2C platforms. Strong background in frontend security fundamentals, real-time architectures, and modern build tooling (Vite, CI/CD).",
+    "Solid full-stack capability with Node.js/NestJS and Java Spring Boot. Seeking to transition into a Frontend Architect / Senior Fullstack role in the near future."
   ],
   skills: {
     "Front End": [
@@ -62,26 +62,40 @@ export const profileData: ProfileData = {
       "React.js",
       "Next.js",
       "Redux",
-      "Vue.js 2/3/4",
-      "Nuxt.js 2/3/4",
+      "Vue.js 2/3",
+      "Nuxt.js 2/4",
+      "TailwindCSS",
+      "Ant Design",
+      "Material UI",
       "HTML5 / CSS3"
     ],
     "Back End": [
       "Node.js",
       "NestJS",
       "Java Spring Boot",
+      "gRPC",
+      "WebSocket",
+      "RESTful APIs",
       "PostgreSQL",
       "MySQL",
       "MongoDB"
     ],
-    "Tools & Design": [
-      "Figma",
-      "Adobe XD",
+    "Architecture & Testing": [
+      "Web Vitals Optimization",
+      "Code Splitting / Lazy Loading",
+      "Micro-frontends",
+      "Playwright (E2E)",
+      "FCM Integration",
+      "Socket.io"
+    ],
+    "Tools & DevOps": [
+      "Git (GitHub / GitLab)",
+      "Vite",
+      "CI/CD (GitHub Actions / GitLab CI)",
       "Docker",
-      "Git",
-      "GitHub / GitLab",
-      "Jira / Backlog / Redmine",
-      "Playwright",
+      "Figma",
+      "Jira / Redmine",
+      "Cursor / Claude CLI",
       "Firebase"
     ]
   },
@@ -94,10 +108,13 @@ export const profileData: ProfileData = {
       achievements: [
         "Core Framework Migration: Spearheaded the successful migration of an enterprise web application from Nuxt 2 to Nuxt 4, boosting Core Web Vitals (LCP/FID) by 25% and reducing main bundle size.",
         "Performance Engineering: Implemented route-level lazy loading, code splitting, and dynamic imports in Next.js/Nuxt.js, optimizing initial page load times and user experience.",
+        "Security & Quality Assurance: Enforced frontend security standards (XSS prevention, safe DOM manipulation) and automated E2E testing with Playwright, reducing regression bugs by 30%.",
         "E-Commerce & Enterprise Platforms: Architected and built scalable B2C, B2B, and B2B2C e-commerce platforms, affiliate loyalty systems (Shopee model), and core ERP modules (Sales, Multi-warehouse, E-KYC).",
-        "Full-stack & Quality Assurance: Implemented robust RESTful APIs using NestJS, integrated Firebase FCM push notifications, and built Playwright E2E testing suites, reducing regression bugs by 30%."
+        "Full-stack & Real-Time: Engineered high-performance communication across microservices using gRPC and RESTful APIs with NestJS, alongside WebSocket interfaces for real-time live data synchronization and Firebase FCM push notifications.",
+        "AI Chatbot Integration: Architected and integrated an AI-powered chatbot using modern LLM APIs (OpenAI / Claude), featuring real-time streaming responses (SSE/WebSocket), smart context management, and custom conversational UI components.",
+        "Code Review & Collaboration: Actively reviewed pull requests, maintained technical spec checklists, and communicated technical decisions clearly with cross-functional stakeholders."
       ],
-      tech: ["Nuxt.js 2/4", "Vue.js 2/3", "Next.js", "React.js", "NestJS", "TypeScript", "Ant Design", "Playwright", "Java"]
+      tech: ["Nuxt.js 2/4", "Vue.js 2/3", "Next.js", "React.js", "NestJS", "TypeScript", "Ant Design", "Playwright", "Java", "Vite", "WebSocket", "gRPC"]
     },
     {
       period: "January 2025 - January 2026",
@@ -116,10 +133,10 @@ export const profileData: ProfileData = {
       role: "Junior Full-stack / Frontend Developer",
       type: "On-site",
       achievements: [
-        "Core Development: Designed reusable UI components in Vue.js and built backend RESTful APIs with database management tools using Java Spring Boot.",
+        "Core Development & Real-Time: Designed reusable UI components in Vue.js, built backend RESTful APIs with Java Spring Boot, and integrated Socket.io for real-time bi-directional data updates across client-server modules.",
         "System Modernization: Successfully led UI migration initiatives from legacy browsers (Internet Explorer) to modern Edge standards and resolved complex legacy system issues."
       ],
-      tech: ["Vue.js 2/3", "Java Spring Boot", "JPA", "Hibernate", "Nuxt.js 3", "JavaScript", "jQuery", "MySQL"]
+      tech: ["Vue.js 2/3", "Ant Design", "Material UI", "Java Spring Boot", "JPA", "Hibernate", "Nuxt.js 3", "JavaScript", "jQuery", "Socket.io", "MySQL"]
     }
   ],
   projects: [
@@ -134,9 +151,13 @@ export const profileData: ProfileData = {
         "Developed new features and maintained legacy functionalities.",
         "Successfully migrated a core web application from Nuxt 2 to Nuxt 4, improving Core Web Vitals (LCP/FID) by 25% and optimizing bundle size.",
         "Optimized application responsiveness and reduced initial bundle size by implementing route-level Lazy Loading (page-based splitting) and dynamic component imports.",
+        "Security & Quality Assurance: Enforced frontend security standards (XSS prevention, safe DOM manipulation) and wrote Playwright E2E test suites to ensure stability across critical user flows.",
+        "Full-stack & Real-Time: Integrated gRPC-based microservice communication and WebSocket interfaces for real-time live-map and ride-status data synchronization.",
+        "AI Chatbot Integration: Architected and integrated an AI-powered in-app chatbot leveraging LLM APIs (OpenAI / Claude) with real-time streaming responses (SSE/WebSocket) and custom conversational UI.",
+        "Code Review & Collaboration: Actively reviewed PRs, maintained technical spec checklists, and drove clear communication between frontend and backend teams.",
         "Utilized AI tools like Antigravity and Claude to accelerate development velocity."
       ],
-      tech: ["Vue.js", "Nuxt.js"],
+      tech: ["Vue.js", "Nuxt.js", "TypeScript", "Vite", "WebSocket", "gRPC", "Playwright"],
       links: [
         { label: "GO Inc", url: "https://go.goinc.jp/" }
       ]
@@ -153,11 +174,13 @@ export const profileData: ProfileData = {
         "Ensured seamless, mobile-first shopping experiences across all desktop, tablet, and mobile browsers",
         "Built high-performance product catalogs with multi-attribute filtering (brand, age group, categories)",
         "Optimized Core Web Vitals, SSR (Server-Side Rendering), and metadata to maximize search engine visibility",
-        "ERP System Development & API Integration: Built robust admin dashboards and secure web-to-backend APIs for real-time synchronization with central ERP systems, managing core modules including Products, Multi-warehouse, Sales, Users, E-KYC, and Promotions.",
+        "Security & Quality Assurance: Applied frontend security standards (XSS prevention, safe API communication) and built Playwright E2E suites covering checkout, auth, and ERP flows — reducing regression bugs by 30%.",
+        "ERP System Development & API Integration: Built robust admin dashboards and secure web-to-backend APIs via gRPC and RESTful NestJS services for real-time synchronization with central ERP modules (Products, Multi-warehouse, Sales, E-KYC, Promotions).",
+        "Real-Time Data Sync: Implemented WebSocket connections for live inventory and order status updates across B2B/B2C dashboards.",
         "E-Commerce Platforms & User Engagement Features: Developed scalable B2C, B2B, and B2B2C web platforms incorporating Shopee-style Affiliate programs, Loyalty reward systems, and Gamification campaigns.",
-        "Integrated Firebase Cloud Messaging (FCM) for push notification features."
+        "Integrated Firebase Cloud Messaging (FCM) for cross-platform push notification features."
       ],
-      tech: ["Next.js", "Nest.js", "MongoDB", "AWS", "Redux", "Tailwind CSS"],
+      tech: ["Next.js", "NestJS", "MongoDB", "AWS", "Redux", "Tailwind CSS", "gRPC", "WebSocket", "Playwright", "TypeScript"],
       links: [
         { label: "Nobinobi web B2C", url: "https://nobinobi.vn" },
         { label: "Nobinobi web B2B", url: "https://banhang.nobinobi.vn/" },
@@ -188,13 +211,14 @@ export const profileData: ProfileData = {
       type: "On-site",
       teamSize: 6,
       features: [
-        "Selected technology stack and initialized frontend source codebase.",
+        "Selected technology stack and initialized frontend source codebase from scratch.",
         "Developed UI interfaces, core functional logic, and reusable common components.",
-        "Implemented backend APIs using Java Spring Boot.",
-        "Integrated OAuth2 login authentication flow.",
-        "Managed and estimated tasks following agile development processes."
+        "Implemented backend APIs using Java Spring Boot with gRPC inter-service communication.",
+        "Integrated OAuth2 login authentication flow with secure session management.",
+        "Applied frontend security standards (XSS prevention, safe DOM handling) across all modules.",
+        "Led code review processes and task estimation following agile/scrum development workflows."
       ],
-      tech: ["Vue.js 2", "Nuxt.js 2", "Java Spring Boot"],
+      tech: ["Vue.js 2", "Nuxt.js 2", "Java Spring Boot", "gRPC", "TypeScript", "Vite"],
       links: []
     },
     {
@@ -205,11 +229,13 @@ export const profileData: ProfileData = {
       type: "On-site",
       teamSize: 12,
       features: [
-        "Developed UI and integrated with APIs.",
+        "Developed UI and integrated with backend APIs.",
         "Maintained system stability by resolving legacy source code issues.",
-        "Fixed bugs in business logic flows (e.g., coupon flow, payment flow)."
+        "Fixed bugs in business logic flows (e.g., coupon flow, payment flow).",
+        "Applied frontend security best practices (XSS prevention, safe form handling) across payment and coupon modules.",
+        "Participated in code review sessions and maintained quality checklists for critical business flows."
       ],
-      tech: ["Vue.js 2", "Nuxt.js 2"],
+      tech: ["Vue.js 2", "Nuxt.js 2", "Ant Design", "TypeScript"],
       links: []
     },
     {
@@ -220,10 +246,11 @@ export const profileData: ProfileData = {
       type: "On-site",
       teamSize: 30,
       features: [
-        "Developed user interfaces and integrated with backend APIs.",
-        "Maintained legacy source code and resolved system-wide issues."
+        "Developed user interfaces with Ant Design and Material UI component libraries, integrated with backend APIs.",
+        "Implemented Socket.io for real-time bi-directional data updates between client modules.",
+        "Maintained legacy source code, resolved system-wide issues, and performed code reviews."
       ],
-      tech: ["Vue.js 2", "Vue.js 3", "Nuxt.js 3", "jQuery"],
+      tech: ["Vue.js 2", "Vue.js 3", "Nuxt.js 3", "jQuery", "Ant Design", "Material UI", "Socket.io"],
       links: []
     },
     {
@@ -234,11 +261,11 @@ export const profileData: ProfileData = {
       type: "On-site",
       teamSize: 20,
       features: [
-        "Migrated UI integration from Internet Explorer to Microsoft Edge.",
-        "Implemented new feature tickets and fixed bugs.",
-        "Wrote test cases and performed manual testing."
+        "Migrated UI integration from Internet Explorer to Microsoft Edge, resolving cross-browser compatibility issues.",
+        "Implemented new feature tickets and fixed bugs across legacy modules.",
+        "Wrote test cases and performed manual testing; applied Material UI components for modernized UI."
       ],
-      tech: ["HTML", "CSS", "Bootstrap", "JavaScript", "jQuery", "Vue.js 2", "Java Spring Boot"],
+      tech: ["HTML", "CSS", "Bootstrap", "Material UI", "JavaScript", "jQuery", "Vue.js 2", "Java Spring Boot"],
       links: []
     },
     {
@@ -249,11 +276,12 @@ export const profileData: ProfileData = {
       type: "On-site",
       teamSize: 50,
       features: [
-        "Developed common frontend functions and reusable components.",
+        "Developed common frontend functions and reusable Ant Design components for a 50-member Japanese project.",
+
         "Wrote dummy data tools, migrated and managed PostgreSQL databases.",
         "Implemented backend APIs using Java Spring Boot (JPA, Hibernate)."
       ],
-      tech: ["Java Spring Boot", "JPA", "Hibernate", "Vue.js 2", "PostgreSQL"],
+      tech: ["Java Spring Boot", "JPA", "Hibernate", "Vue.js 2", "PostgreSQL", "Ant Design"],
       links: []
     }
   ]

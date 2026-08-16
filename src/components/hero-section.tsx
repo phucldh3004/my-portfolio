@@ -121,22 +121,22 @@ export function HeroSection() {
             <motion.div className="space-y-8" initial="hidden" animate="visible" variants={containerVariants}>
               <div className="space-y-4">
                 <motion.div variants={itemVariants}>
-                  <h1 className="text-5xl md:text-7xl font-bold text-balance">{profileData.name}</h1>
-                  <p className="text-xl md:text-2xl text-muted-foreground/80 mt-2">{profileData.fullName}</p>
+                  <h1 className="text-5xl md:text-7xl font-bold text-balance text-center sm:text-left">{profileData.name}</h1>
+                  <p className="text-xl md:text-2xl text-muted-foreground/80 mt-2 text-center sm:text-left">{profileData.fullName}</p>
                 </motion.div>
-                <motion.p variants={itemVariants} className="text-2xl md:text-3xl text-muted-foreground">
+                <motion.p variants={itemVariants} className="text-2xl md:text-3xl text-muted-foreground text-center sm:text-left">
                   {profileData.title}
                 </motion.p>
               </div>
 
               <motion.p
                 variants={itemVariants}
-                className="text-lg md:text-xl text-muted-foreground max-w-3xl leading-relaxed"
+                className="text-lg md:text-xl text-muted-foreground max-w-3xl leading-relaxed text-center sm:text-left"
               >
                 {profileData.bio[0]}
               </motion.p>
 
-              <motion.div variants={itemVariants} className="flex flex-wrap gap-4">
+              <motion.div variants={itemVariants} className="flex flex-wrap gap-4 justify-center sm:justify-start">
                 <a
                   href="#contact"
                   className="inline-flex items-center gap-2 px-6 py-3 rounded-md text-sm font-medium text-white transition-all duration-300 hover:opacity-90 hover:scale-[1.03] active:scale-[0.97] shadow-lg"
