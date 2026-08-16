@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://richard-vo.com",
+    url: "https://le-duong-hoang-phuc-3004.vercel.app/",
     title: `${profileData.name} (${profileData.fullName}) - Senior Frontend Developer / Software Engineer`,
     description: "Senior Frontend Developer / Software Engineer with 5 years of experience specializing in React, Next.js, Vue, Node.js, and AWS.",
     siteName: `${profileData.name} Portfolio`,
@@ -76,13 +76,13 @@ export default function RootLayout({
               alternateName: profileData.name,
               jobTitle: "Senior Frontend Developer / Software Engineer",
               description: "Senior Frontend Developer / Software Engineer with 5 years of experience specializing in React, Next.js, Vue, Node.js, NestJS, and AWS",
-              url: "https://richard-vo.com",
+              url: "https://le-duong-hoang-phuc-3004.vercel.app/",
               image: "/avatar_phucldh.jpg",
               email: profileData.email,
               telephone: profileData.phone,
               sameAs: [
-                "https://www.linkedin.com/in/richardvo1412/",
-                "https://github.com/vuduc0910",
+                "https://www.linkedin.com/in/phucldh3004/",
+                "https://github.com/phucldh3004",
               ],
               knowsAbout: [
                 "JavaScript",
