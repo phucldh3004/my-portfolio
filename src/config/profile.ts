@@ -62,6 +62,8 @@ export const profileData: ProfileData = {
       "React.js",
       "Next.js",
       "Redux",
+      "TanStack Query (React Query)",
+      "SWR",
       "Vue.js 2/3",
       "Nuxt.js 2/4",
       "TailwindCSS",
@@ -72,7 +74,7 @@ export const profileData: ProfileData = {
     "Back End": [
       "Node.js",
       "NestJS",
-      "Java Spring Boot",
+      "Java Spring Boot (JPA / Hibernate)",
       "gRPC",
       "WebSocket",
       "RESTful APIs",
@@ -94,8 +96,10 @@ export const profileData: ProfileData = {
       "CI/CD (GitHub Actions / GitLab CI)",
       "Docker",
       "Figma",
+      "Stitch Google AI",
       "Jira / Redmine",
       "Cursor / Claude CLI",
+      "AI-assisted Development",
       "Firebase"
     ]
   },
@@ -107,14 +111,15 @@ export const profileData: ProfileData = {
       type: "On-site",
       achievements: [
         "Core Framework Migration: Spearheaded the successful migration of an enterprise web application from Nuxt 2 to Nuxt 4, boosting Core Web Vitals (LCP/FID) by 25% and reducing main bundle size.",
+        "State & Server-Data Management: Optimized server-state synchronization and client-side caching by implementing TanStack Query (React Query) and SWR, significantly reducing redundant API calls, handling background refetching, and enhancing overall UX responsiveness.",
         "Performance Engineering: Implemented route-level lazy loading, code splitting, and dynamic imports in Next.js/Nuxt.js, optimizing initial page load times and user experience.",
         "Security & Quality Assurance: Enforced frontend security standards (XSS prevention, safe DOM manipulation) and automated E2E testing with Playwright, reducing regression bugs by 30%.",
         "E-Commerce & Enterprise Platforms: Architected and built scalable B2C, B2B, and B2B2C e-commerce platforms, affiliate loyalty systems (Shopee model), and core ERP modules (Sales, Multi-warehouse, E-KYC).",
         "Full-stack & Real-Time: Engineered high-performance communication across microservices using gRPC and RESTful APIs with NestJS, alongside WebSocket interfaces for real-time live data synchronization and Firebase FCM push notifications.",
-        "AI Chatbot Integration: Architected and integrated an AI-powered chatbot using modern LLM APIs (OpenAI / Claude), featuring real-time streaming responses (SSE/WebSocket), smart context management, and custom conversational UI components.",
-        "Code Review & Collaboration: Actively reviewed pull requests, maintained technical spec checklists, and communicated technical decisions clearly with cross-functional stakeholders."
+        "AI Chatbot Integration: Architected and integrated an AI-powered chatbot using modern LLM APIs (OpenAI / Claude), featuring real-time streaming responses (SSE/WebSocket), smart context management, and custom conversational UI components to elevate user engagement.",
+        "Code Review & Collaboration: Actively reviewed pull requests, strictly maintained technical spec checklists, and communicated technical decisions clearly with cross-functional stakeholders."
       ],
-      tech: ["Nuxt.js 2/4", "Vue.js 2/3", "Next.js", "React.js", "NestJS", "TypeScript", "Ant Design", "Playwright", "Java", "Vite", "WebSocket", "gRPC"]
+      tech: ["Nuxt.js 2/4", "Vue.js 2/3", "Next.js", "React.js", "NestJS", "TanStack Query", "SWR", "TypeScript", "Ant Design", "Playwright", "Java", "Vite", "WebSocket", "gRPC"]
     },
     {
       period: "January 2025 - January 2026",
@@ -173,6 +178,7 @@ export const profileData: ProfileData = {
         "Delivered optimized web layouts for both B2C retail shoppers and B2B wholesale partners with custom pricing tiers",
         "Ensured seamless, mobile-first shopping experiences across all desktop, tablet, and mobile browsers",
         "Built high-performance product catalogs with multi-attribute filtering (brand, age group, categories)",
+        "State & Server-Data Management: Optimized server-state synchronization and client-side caching by implementing TanStack Query (React Query) and SWR, significantly eliminating redundant API calls, managing automatic background refetching, and boosting UX responsiveness across store and ERP dashboards.",
         "Optimized Core Web Vitals, SSR (Server-Side Rendering), and metadata to maximize search engine visibility",
         "Security & Quality Assurance: Applied frontend security standards (XSS prevention, safe API communication) and built Playwright E2E suites covering checkout, auth, and ERP flows — reducing regression bugs by 30%.",
         "ERP System Development & API Integration: Built robust admin dashboards and secure web-to-backend APIs via gRPC and RESTful NestJS services for real-time synchronization with central ERP modules (Products, Multi-warehouse, Sales, E-KYC, Promotions).",
@@ -180,7 +186,7 @@ export const profileData: ProfileData = {
         "E-Commerce Platforms & User Engagement Features: Developed scalable B2C, B2B, and B2B2C web platforms incorporating Shopee-style Affiliate programs, Loyalty reward systems, and Gamification campaigns.",
         "Integrated Firebase Cloud Messaging (FCM) for cross-platform push notification features."
       ],
-      tech: ["Next.js", "NestJS", "MongoDB", "AWS", "Redux", "Tailwind CSS", "gRPC", "WebSocket", "Playwright", "TypeScript"],
+      tech: ["Next.js", "NestJS", "TanStack Query", "SWR", "MongoDB", "AWS", "Redux", "Tailwind CSS", "gRPC", "WebSocket", "Playwright", "TypeScript"],
       links: [
         { label: "Nobinobi web B2C", url: "https://nobinobi.vn" },
         { label: "Nobinobi web B2B", url: "https://banhang.nobinobi.vn/" },
