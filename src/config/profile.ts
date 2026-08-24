@@ -51,7 +51,7 @@ export const profileData: ProfileData = {
   githubUrl: "https://github.com/phucldh3004",
   linkedinUrl: "https://www.linkedin.com/in/phucldh3004/",
   bio: [
-    "Senior Frontend Engineer with 5+ years of experience specializing in React.js, Next.js, Vue.js, and Nuxt.js ecosystems.",
+    "Senior Frontend Engineer with 6+ years of experience specializing in React.js, Next.js, Vue.js, and Nuxt.js ecosystems.",
     "Proven track record in optimizing web performance (improving Core Web Vitals by 25%), leading core framework migrations, and architecting scalable B2B/B2C platforms. Strong background in frontend security fundamentals, real-time architectures, and modern build tooling (Vite, CI/CD).",
     "Solid full-stack capability with Node.js/NestJS and Java Spring Boot. Seeking to transition into a Frontend Architect / Senior Fullstack role in the near future."
   ],
