@@ -24,6 +24,12 @@ export interface Experience {
   tech: string[];
 }
 
+export interface Education {
+  school: string;
+  degree: string;
+  period: string;
+}
+
 export interface ProfileData {
   name: string;
   fullName: string;
@@ -37,15 +43,16 @@ export interface ProfileData {
   bio: string[];
   skills: Record<string, string[]>;
   experiences: Experience[];
+  education: Education;
   projects: Project[];
 }
 
 export const profileData: ProfileData = {
   name: "Hoang Phuc",
   fullName: "Lê Dương Hoàng Phúc",
-  title: "Software Engineer / Senior Frontend Developer",
+  title: "Senior Frontend / Full-stack Developer",
   email: "leduonghoangphuc3004@gmail.com",
-  phone: "0886392505",
+  phone: "(+84) 886 392 505",
   github: "phucldh3004",
   linkedin: "phucldh3004",
   githubUrl: "https://github.com/phucldh3004",
@@ -53,60 +60,60 @@ export const profileData: ProfileData = {
   bio: [
     "Senior Frontend Engineer with 6+ years of experience specializing in React.js, Next.js, Vue.js, and Nuxt.js ecosystems.",
     "Proven track record in optimizing web performance (improving Core Web Vitals by 25%), leading core framework migrations, and architecting scalable B2B/B2C platforms. Strong background in frontend security fundamentals, real-time architectures, and modern build tooling (Vite, CI/CD).",
-    "Solid full-stack capability with Node.js/NestJS and Java Spring Boot. Seeking to transition into a Frontend Architect / Senior Fullstack role in the near future."
+    "Solid full-stack capability with Node.js/Nest.js and Java Spring Boot."
   ],
   skills: {
-    "Front End": [
-      "JavaScript (ES6+)",
-      "TypeScript",
+    "Frontend Stack": [
       "React.js",
       "Next.js",
+      "Vue.js (2,3)",
+      "Nuxt.js (2,4)",
+      "TypeScript",
+      "JavaScript (ES6+)",
       "Redux",
       "TanStack Query (React Query)",
       "SWR",
-      "Vue.js 2/3",
-      "Nuxt.js 2/4",
       "TailwindCSS",
       "Ant Design",
       "Material UI",
-      "HTML5 / CSS3"
+      "CSS3 (Flexbox, CSS custom properties, aspect-ratio queries)"
     ],
-    "Back End": [
+    "Backend & Database": [
       "Node.js",
       "NestJS",
-      "Java Spring Boot (JPA / Hibernate)",
+      "Java (Spring Boot, JPA, Hibernate)",
+      "RESTful APIs",
       "gRPC",
       "WebSocket",
-      "RESTful APIs",
-      "PostgreSQL",
       "MySQL",
+      "PostgreSQL",
       "MongoDB"
     ],
     "Architecture & Testing": [
       "Web Vitals Optimization",
       "Code Splitting / Lazy Loading",
-      "Micro-frontends",
       "Playwright (E2E)",
-      "FCM Integration",
-      "Socket.io"
+      "Micro-frontends",
+      "FCM Integration"
     ],
-    "Tools & DevOps": [
+    "Tools, DevOps & AI Workflow": [
       "Git (GitHub / GitLab)",
       "Vite",
-      "CI/CD (GitHub Actions / GitLab CI)",
+      "CI/CD Pipelines (GitHub Actions / GitLab CI)",
       "Docker",
       "Figma",
       "Stitch Google AI",
-      "Jira / Redmine",
-      "Cursor / Claude CLI",
-      "AI-assisted Development",
-      "Firebase"
+      "Jira",
+      "Redmine",
+      "Cursor",
+      "Claude CLI",
+      "AI-assisted Development"
     ]
   },
   experiences: [
     {
-      period: "August 2022 - Present",
-      company: "Gianty Vietnam",
+      period: "08/2022 – Present",
+      company: "GIANTY VIETNAM",
       role: "Senior Frontend / Full-stack Developer",
       type: "On-site",
       achievements: [
@@ -115,14 +122,14 @@ export const profileData: ProfileData = {
         "Performance Engineering: Implemented route-level lazy loading, code splitting, and dynamic imports in Next.js/Nuxt.js, optimizing initial page load times and user experience.",
         "Security & Quality Assurance: Enforced frontend security standards (XSS prevention, safe DOM manipulation) and automated E2E testing with Playwright, reducing regression bugs by 30%.",
         "E-Commerce & Enterprise Platforms: Architected and built scalable B2C, B2B, and B2B2C e-commerce platforms, affiliate loyalty systems (Shopee model), and core ERP modules (Sales, Multi-warehouse, E-KYC).",
-        "Full-stack & Real-Time: Engineered high-performance communication across microservices using gRPC and RESTful APIs with NestJS, alongside WebSocket interfaces for real-time live data synchronization and Firebase FCM push notifications.",
+        "Full-stack: Engineered high-performance communication across microservices using gRPC and RESTful APIs with NestJS, alongside WebSocket interfaces for real-time live data synchronization and Firebase FCM push notifications.",
         "AI Chatbot Integration: Architected and integrated an AI-powered chatbot using modern LLM APIs (OpenAI / Claude), featuring real-time streaming responses (SSE/WebSocket), smart context management, and custom conversational UI components to elevate user engagement.",
         "Code Review & Collaboration: Actively reviewed pull requests, strictly maintained technical spec checklists, and communicated technical decisions clearly with cross-functional stakeholders."
       ],
-      tech: ["Nuxt.js 2/4", "Vue.js 2/3", "Next.js", "React.js", "NestJS", "TanStack Query", "SWR", "TypeScript", "Ant Design", "Playwright", "Java", "Vite", "WebSocket", "gRPC"]
+      tech: ["Nuxt.js (2/4)", "Vue.js (2/3)", "Next.js", "React.js", "NestJS", "TanStack Query", "SWR", "TypeScript", "Ant Design", "Playwright", "Java", "Vite", "WebSocket"]
     },
     {
-      period: "January 2025 - January 2026",
+      period: "01/2025 – 01/2026",
       company: "DIGITAL UNICORN",
       role: "Freelance Full-stack Developer",
       type: "Freelancer",
@@ -133,17 +140,22 @@ export const profileData: ProfileData = {
       tech: ["Vue.js 3", "TypeScript", "NestJS", "D3.js", "Chart.js", "Strapi CMS", "Figma"]
     },
     {
-      period: "July 2020 - August 2022",
-      company: "FPT Software HCM",
+      period: "04/2020 – 08/2022",
+      company: "FPT SOFTWARE HCM",
       role: "Junior Full-stack / Frontend Developer",
       type: "On-site",
       achievements: [
         "Core Development & Real-Time: Designed reusable UI components in Vue.js, built backend RESTful APIs with Java Spring Boot, and integrated Socket.io for real-time bi-directional data updates across client-server modules.",
         "System Modernization: Successfully led UI migration initiatives from legacy browsers (Internet Explorer) to modern Edge standards and resolved complex legacy system issues."
       ],
-      tech: ["Vue.js 2/3", "Ant Design", "Material UI", "Java Spring Boot", "JPA", "Hibernate", "Nuxt.js 3", "JavaScript", "jQuery", "Socket.io", "MySQL"]
+      tech: ["Vue.js (2/3)", "Ant Design", "Material UI", "Java Spring Boot (JPA/Hibernate)", "Nuxt.js 3", "JavaScript", "jQuery", "Socket.io", "MySQL"]
     }
   ],
+  education: {
+    school: "FPT UNIVERSITY HO CHI MINH",
+    degree: "Bachelor of Science in Software Engineering",
+    period: "09/2016 – 04/2020"
+  },
   projects: [
     {
       title: "GO Inc",

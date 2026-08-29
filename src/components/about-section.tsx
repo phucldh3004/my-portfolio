@@ -55,19 +55,7 @@ export function AboutSection() {
                 className="text-lg leading-relaxed text-muted-foreground"
                 variants={itemVariants}
               >
-                {index === 1 ? (
-                  <>
-                    Currently, I'm a{" "}
-                    <span className="text-foreground font-medium">
-                      Senior Frontend Developer / Software Engineer at Gianty VietNam
-                    </span>
-                    , where I work in building E-commerce platforms with B2B, B2C, B2B2C and ERP systems. I specialize in React, Next.js,
-                    Vue, Nest.js, and AWS, with a strong focus on performance
-                    optimization and scalability.
-                  </>
-                ) : (
-                  paragraph
-                )}
+                {paragraph}
               </motion.p>
             ))}
           </motion.div>

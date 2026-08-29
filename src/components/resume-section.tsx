@@ -9,8 +9,8 @@ export function ResumeSection() {
   const highlights = [
     {
       icon: Briefcase,
-      title: "5+ Years Experience",
-      description: "Fullstack Development",
+      title: "6+ Years Experience",
+      description: "Frontend & Fullstack",
     },
     {
       icon: Award,
