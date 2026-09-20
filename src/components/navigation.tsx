@@ -30,18 +30,18 @@ export function Navigation() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-background/80 backdrop-blur-md border-b border-border" : ""
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "bg-background/80 backdrop-blur-md border-b border-border" : ""
+        }`}
     >
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <a href="#" className="flex items-center">
             <div className="relative w-10 h-10 rounded-full ring-2 ring-[#0c4a6e]/20 overflow-hidden">
               <Image
-                src="/avatar_phucldh.jpg"
+                src="/avatar_phucldh.webp"
                 alt={profileData.name}
                 fill
+                sizes="40px"
                 className="object-cover"
               />
             </div>
@@ -85,24 +85,26 @@ export function Navigation() {
                     <Button variant="ghost" size="icon" asChild>
                       <a
                         href={profileData.githubUrl}
+                        aria-label="GitHub profile"
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        <Github className="h-5 w-5" />
+                        <Github className="h-5 w-5" aria-hidden="true" />
                       </a>
                     </Button>
                     <Button variant="ghost" size="icon" asChild>
                       <a
                         href={profileData.linkedinUrl}
+                        aria-label="LinkedIn profile"
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        <Linkedin className="h-5 w-5" />
+                        <Linkedin className="h-5 w-5" aria-hidden="true" />
                       </a>
                     </Button>
                     <Button variant="ghost" size="icon" asChild>
-                      <a href={`mailto:${profileData.email}`}>
-                        <Mail className="h-5 w-5" />
+                      <a href={`mailto:${profileData.email}`} aria-label="Send email">
+                        <Mail className="h-5 w-5" aria-hidden="true" />
                       </a>
                     </Button>
                   </div>
@@ -115,24 +117,26 @@ export function Navigation() {
               <Button variant="ghost" size="icon" asChild>
                 <a
                   href={profileData.githubUrl}
+                  aria-label="GitHub profile"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <Github className="h-5 w-5" />
+                  <Github className="h-5 w-5" aria-hidden="true" />
                 </a>
               </Button>
               <Button variant="ghost" size="icon" asChild>
                 <a
                   href={profileData.linkedinUrl}
+                  aria-label="LinkedIn profile"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <Linkedin className="h-5 w-5" />
+                  <Linkedin className="h-5 w-5" aria-hidden="true" />
                 </a>
               </Button>
               <Button variant="ghost" size="icon" asChild>
-                <a href={`mailto:${profileData.email}`}>
-                  <Mail className="h-5 w-5" />
+                <a href={`mailto:${profileData.email}`} aria-label="Send email">
+                  <Mail className="h-5 w-5" aria-hidden="true" />
                 </a>
               </Button>
             </div>

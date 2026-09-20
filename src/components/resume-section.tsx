@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { Download, FileText, Award, Briefcase, GraduationCap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -49,7 +49,7 @@ export function ResumeSection() {
   return (
     <section id="resume" className="py-20 px-4">
       <div className="container max-w-6xl mx-auto">
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -63,9 +63,9 @@ export function ResumeSection() {
             Download my complete resume to see my full experience, education,
             and achievements
           </p>
-        </motion.div>
+        </m.div>
 
-        <motion.div
+        <m.div
           className="grid md:grid-cols-3 gap-6 mb-12"
           initial="hidden"
           whileInView="visible"
@@ -73,7 +73,7 @@ export function ResumeSection() {
           variants={containerVariants}
         >
           {highlights.map((item, index) => (
-            <motion.div key={index} variants={cardVariants}>
+            <m.div key={index} variants={cardVariants}>
               <Card className="bg-card/50 backdrop-blur border-border/50 hover:border-primary/50 hover:scale-105 transition-all duration-300 h-full">
                 <CardContent className="p-6 text-center">
                   <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
@@ -85,11 +85,11 @@ export function ResumeSection() {
                   </p>
                 </CardContent>
               </Card>
-            </motion.div>
+            </m.div>
           ))}
-        </motion.div>
+        </m.div>
 
-        <motion.div
+        <m.div
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] as any }}
@@ -126,7 +126,7 @@ export function ResumeSection() {
               </div>
             </CardContent>
           </Card>
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

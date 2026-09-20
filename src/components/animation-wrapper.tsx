@@ -1,7 +1,8 @@
 "use client"
 
 import { useRef, type ReactNode } from "react"
-import { motion, useInView, useAnimation } from "framer-motion"
+import { m } from "framer-motion";
+import { useInView, useAnimation } from "framer-motion"
 import { useEffect } from "react"
 
 interface AnimationWrapperProps {
@@ -46,7 +47,7 @@ export function AnimationWrapper({ children, className = "", delay = 0, animatio
   }
 
   return (
-    <motion.div
+    <m.div
       ref={ref}
       initial="hidden"
       animate={controls}
@@ -59,6 +60,6 @@ export function AnimationWrapper({ children, className = "", delay = 0, animatio
       className={className}
     >
       {children}
-    </motion.div>
+    </m.div>
   )
 }

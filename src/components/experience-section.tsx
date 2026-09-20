@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { profileData } from "@/config/profile";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -71,7 +71,7 @@ export function ExperienceSection() {
     <section id="experience" className="py-24 px-4 bg-muted/30">
       <div className="container mx-auto max-w-5xl">
         <div className="grid md:grid-cols-[200px_1fr] gap-12">
-          <motion.div
+          <m.div
             className="space-y-2"
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -82,9 +82,9 @@ export function ExperienceSection() {
               Career Timeline
             </h2>
             <p className="text-2xl font-bold text-foreground">Experience</p>
-          </motion.div>
+          </m.div>
 
-          <motion.div
+          <m.div
             className="space-y-8"
             initial="hidden"
             whileInView="visible"
@@ -92,23 +92,23 @@ export function ExperienceSection() {
             variants={containerVariants}
           >
             {profileData.experiences.length === 0 ? (
-              <motion.p
+              <m.p
                 variants={itemVariants}
                 className="text-muted-foreground text-sm"
               >
                 No experience entries.
-              </motion.p>
+              </m.p>
             ) : (
               profileData.experiences.map((exp, index) => (
-                <motion.div key={index} variants={itemVariants}>
+                <m.div key={index} variants={itemVariants}>
                   <Card className="p-6 space-y-4 border-border bg-card hover:shadow-lg hover:scale-[1.02] transition-all duration-300 overflow-hidden">
-                    <motion.div
+                    <m.div
                       initial="hidden"
                       whileInView="visible"
                       viewport={{ once: true, amount: 0.3 }}
                       variants={cardContentVariants}
                     >
-                      <motion.div className="space-y-2" variants={headerVariants}>
+                      <m.div className="space-y-2" variants={headerVariants}>
                         <div className="flex items-start justify-between flex-wrap gap-2">
                           <div>
                             <span className={`text-xs font-semibold uppercase tracking-widest ${typeColorMap[exp.type] ?? "text-muted-foreground"}`}>
@@ -125,47 +125,47 @@ export function ExperienceSection() {
                             {exp.period}
                           </Badge>
                         </div>
-                      </motion.div>
+                      </m.div>
 
-                      <motion.div variants={headerVariants} className="mt-4">
+                      <m.div variants={headerVariants} className="mt-4">
                         <h4 className="text-sm font-medium text-foreground mb-2">
                           Key Achievements:
                         </h4>
-                        <motion.ul
+                        <m.ul
                           className="space-y-1 text-sm text-muted-foreground"
                           variants={achievementVariants}
                         >
                           {exp.achievements.map((achievement, i) => (
-                            <motion.li
+                            <m.li
                               key={i}
                               className="flex gap-2"
                               variants={achievementItemVariants}
                             >
                               <span className="text-accent">•</span>
                               <span>{achievement}</span>
-                            </motion.li>
+                            </m.li>
                           ))}
-                        </motion.ul>
-                      </motion.div>
+                        </m.ul>
+                      </m.div>
 
-                      <motion.div className="flex flex-wrap gap-2 mt-4" variants={techVariants}>
+                      <m.div className="flex flex-wrap gap-2 mt-4" variants={techVariants}>
                         {exp.tech.map((tech, i) => (
-                          <motion.div key={i} variants={techItemVariants}>
+                          <m.div key={i} variants={techItemVariants}>
                             <Badge
                               variant="outline"
                               className="text-xs hover:scale-110 transition-transform"
                             >
                               {tech}
                             </Badge>
-                          </motion.div>
+                          </m.div>
                         ))}
-                      </motion.div>
-                    </motion.div>
+                      </m.div>
+                    </m.div>
                   </Card>
-                </motion.div>
+                </m.div>
               ))
             )}
-          </motion.div>
+          </m.div>
         </div>
       </div>
     </section>

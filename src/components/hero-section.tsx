@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
 import Image from "next/image"
-import { motion } from "framer-motion"
+import { m } from "framer-motion";
 import { useEffect, useRef, useState } from "react"
 import Script from "next/script"
 import { profileData } from "@/config/profile"
@@ -76,7 +76,8 @@ export function HeroSection() {
   }
 
   const avatarVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
+    // Keep opacity at 1 so the avatar (LCP element) is painted immediately instead of after a fade-in.
+    hidden: { opacity: 1, scale: 0.8 },
     visible: {
       opacity: 1,
       scale: 1,
@@ -99,7 +100,7 @@ export function HeroSection() {
         }}
       />
       <Script
-        src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"
+        src="https://cdn.jsdelivr.net/npm/vanta@0.5.24/dist/vanta.net.min.js"
         strategy="afterInteractive"
         onLoad={() => {
           console.log("Vanta.js loaded via next/script");
@@ -112,31 +113,40 @@ export function HeroSection() {
 
         <div className="container mx-auto max-w-5xl relative z-10">
           <div className="flex flex-col md:flex-row items-center gap-12">
-            <motion.div className="flex-shrink-0" initial="hidden" animate="visible" variants={avatarVariants}>
+            <m.div className="flex-shrink-0" initial="hidden" animate="visible" variants={avatarVariants}>
               <div className="relative w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden ring-4 ring-[#0c4a6e]/20">
-                <Image src="/avatar_phucldh.jpg" alt={profileData.name} fill className="object-cover" priority />
+                <Image
+                  src="/avatar_phucldh.webp"
+                  alt={profileData.name}
+                  fill
+                  sizes="(min-width: 768px) 256px, 192px"
+                  className="object-cover"
+                  preload
+                  fetchPriority="high"
+                  loading="eager"
+                />
               </div>
-            </motion.div>
+            </m.div>
 
-            <motion.div className="space-y-8" initial="hidden" animate="visible" variants={containerVariants}>
+            <m.div className="space-y-8" initial="hidden" animate="visible" variants={containerVariants}>
               <div className="space-y-4">
-                <motion.div variants={itemVariants}>
+                <m.div variants={itemVariants}>
                   <h1 className="text-5xl md:text-7xl font-bold text-balance text-center sm:text-left">{profileData.name}</h1>
-                  <p className="text-xl md:text-2xl text-muted-foreground/80 mt-2 text-center sm:text-left">{profileData.fullName}</p>
-                </motion.div>
-                <motion.p variants={itemVariants} className="text-2xl md:text-3xl text-muted-foreground text-center sm:text-left">
+                  <p className="text-xl md:text-2xl text-muted-foreground/80 mt-2 md:mt-4 text-center sm:text-left">{profileData.fullName}</p>
+                </m.div>
+                <m.p variants={itemVariants} className="text-2xl md:text-3xl text-muted-foreground text-center sm:text-left">
                   {profileData.title}
-                </motion.p>
+                </m.p>
               </div>
 
-              <motion.p
+              <m.p
                 variants={itemVariants}
                 className="text-lg md:text-xl text-muted-foreground max-w-3xl leading-relaxed text-center sm:text-left"
               >
                 {profileData.bio[0]}
-              </motion.p>
+              </m.p>
 
-              <motion.div variants={itemVariants} className="flex flex-wrap gap-4 justify-center sm:justify-start">
+              <m.div variants={itemVariants} className="flex flex-wrap gap-4 justify-center sm:justify-start">
                 <a
                   href="#contact"
                   className="inline-flex items-center gap-2 px-6 py-3 rounded-md text-sm font-medium text-white transition-all duration-300 hover:opacity-90 hover:scale-[1.03] active:scale-[0.97] shadow-lg"
@@ -148,17 +158,17 @@ export function HeroSection() {
                 <Button size="lg" variant="outline" asChild>
                   <a href="#projects">View projects</a>
                 </Button>
-              </motion.div>
+              </m.div>
 
-              <motion.div variants={itemVariants} className="flex flex-wrap gap-6 text-sm text-muted-foreground">
+              <m.div variants={itemVariants} className="flex flex-wrap gap-6 text-sm text-muted-foreground">
                 <a href={`tel:${profileData.phone}`} className="hover:text-foreground transition-colors">
                   {profileData.phone}
                 </a>
                 <a href={`mailto:${profileData.email}`} className="hover:text-foreground transition-colors">
                   {profileData.email}
                 </a>
-              </motion.div>
-            </motion.div>
+              </m.div>
+            </m.div>
           </div>
         </div>
       </section>

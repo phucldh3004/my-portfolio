@@ -8,9 +8,11 @@ import { ContactSection } from "@/components/contact-section";
 import { Navigation } from "@/components/navigation";
 import { AnimationWrapper } from "@/components/animation-wrapper";
 import { SectionBackground } from "@/components/section-background";
+import { MotionProvider } from "@/components/motion-provider";
 
 export default function Home() {
   return (
+    <MotionProvider>
     <main className="min-h-screen bg-background relative">
       <Navigation />
       <HeroSection />
@@ -53,5 +55,6 @@ export default function Home() {
         </SectionBackground>
       </AnimationWrapper>
     </main>
+    </MotionProvider>
   );
 }

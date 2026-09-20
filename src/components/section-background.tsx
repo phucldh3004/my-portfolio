@@ -1,7 +1,7 @@
 "use client"
 
 import type React from "react"
-import { motion } from "framer-motion"
+import { m } from "framer-motion";
 
 interface SectionBackgroundProps {
   variant?: "default" | "accent" | "gradient"
@@ -20,7 +20,7 @@ export function SectionBackground({ variant = "default", children }: SectionBack
       {/* Decorative elements */}
       {variant === "accent" && (
         <>
-          <motion.div
+          <m.div
             className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl"
             animate={{
               scale: [1, 1.2, 1],
@@ -32,7 +32,7 @@ export function SectionBackground({ variant = "default", children }: SectionBack
               ease: "easeInOut",
             }}
           />
-          <motion.div
+          <m.div
             className="absolute bottom-0 left-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl"
             animate={{
               scale: [1.2, 1, 1.2],

@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion, Variants } from "framer-motion";
+import { m } from "framer-motion";
+import type { Variants } from "framer-motion";
 import { profileData, Project } from "@/config/profile";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -137,7 +138,7 @@ function ProjectCard({
   };
 
   return (
-    <motion.div key={index} variants={cardVariants}>
+    <m.div key={index} variants={cardVariants}>
       <Card
         className={`p-5 space-y-3 border-border bg-card hover:shadow-xl hover:scale-[1.01] transition-all duration-300 overflow-hidden relative
           ${side === "left" ? "text-right" : "text-left"}`}
@@ -147,14 +148,14 @@ function ProjectCard({
           className={`absolute top-0 ${side === "left" ? "right-0" : "left-0"} w-1 h-full rounded-full bg-gradient-to-b from-primary/60 to-transparent`}
         />
 
-        <motion.div
+        <m.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
           variants={cardContentVariants}
         >
           {/* Header */}
-          <motion.div className="space-y-1" variants={itemVariants}>
+          <m.div className="space-y-1" variants={itemVariants}>
             {project.type && (
               <span className={`text-xs font-semibold uppercase tracking-widest ${typeColor}`}>
                 {project.type}
@@ -175,49 +176,49 @@ function ProjectCard({
             <p className={`text-xs text-muted-foreground leading-relaxed mt-1`}>
               {project.description}
             </p>
-          </motion.div>
+          </m.div>
 
           {/* Features */}
-          <motion.div variants={itemVariants} className="mt-3">
+          <m.div variants={itemVariants} className="mt-3">
             <h4 className="text-xs font-semibold text-foreground/70 mb-1 uppercase tracking-wider">
               Key Features
             </h4>
-            <motion.ul
+            <m.ul
               className={`space-y-1 text-xs text-muted-foreground ${side === "left" ? "items-end" : "items-start"} flex flex-col`}
               variants={featureVariants}
             >
               {project.features.map((feature, i) => (
-                <motion.li
+                <m.li
                   key={i}
                   className={`flex gap-1.5 ${side === "left" ? "flex-row-reverse" : "flex-row"}`}
                   variants={featureItemVariants}
                 >
                   <span className="text-primary shrink-0">•</span>
                   <span>{feature}</span>
-                </motion.li>
+                </m.li>
               ))}
-            </motion.ul>
-          </motion.div>
+            </m.ul>
+          </m.div>
 
           {/* Tech badges */}
-          <motion.div variants={itemVariants} className="mt-3">
-            <motion.div
+          <m.div variants={itemVariants} className="mt-3">
+            <m.div
               className={`flex flex-wrap gap-1.5 ${side === "left" ? "justify-end" : "justify-start"}`}
               variants={techVariants}
             >
               {project.tech.map((tech, i) => (
-                <motion.div key={i} variants={techItemVariants}>
+                <m.div key={i} variants={techItemVariants}>
                   <Badge variant="outline" className="text-xs hover:scale-110 transition-transform cursor-default">
                     {tech}
                   </Badge>
-                </motion.div>
+                </m.div>
               ))}
-            </motion.div>
-          </motion.div>
+            </m.div>
+          </m.div>
 
           {/* Links */}
           {project.links && project.links.length > 0 && (
-            <motion.div
+            <m.div
               variants={itemVariants}
               className={`flex flex-wrap gap-2 mt-3 ${side === "left" ? "justify-end" : "justify-start"}`}
             >
@@ -234,11 +235,11 @@ function ProjectCard({
                   </a>
                 </Button>
               ))}
-            </motion.div>
+            </m.div>
           )}
-        </motion.div>
+        </m.div>
       </Card>
-    </motion.div>
+    </m.div>
   );
 }
 
@@ -251,7 +252,7 @@ export function ProjectsSection() {
     <section id="projects" className="py-24 px-4 bg-muted/30">
       <div className="container mx-auto max-w-6xl">
         {/* Section heading */}
-        <motion.div
+        <m.div
           className="mb-16 text-center"
           initial={{ opacity: 0, y: -16 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -262,10 +263,10 @@ export function ProjectsSection() {
             Work History
           </h2>
           <p className="text-2xl font-bold text-foreground">Projects</p>
-        </motion.div>
+        </m.div>
 
         {/* Timeline */}
-        <motion.div
+        <m.div
           className="relative flex flex-col items-center gap-0"
           initial="hidden"
           whileInView="visible"
@@ -297,7 +298,7 @@ export function ProjectsSection() {
                         </div>
                       </div>
                       <div className="hidden md:flex w-28 items-center justify-start pt-6">
-                        <motion.div
+                        <m.div
                           className="h-px w-full bg-border origin-right"
                           variants={connectorVariants}
                         />
@@ -308,7 +309,7 @@ export function ProjectsSection() {
                     <>
                       <div className="hidden md:block md:pr-6" />
                       <div className="hidden md:flex w-28 items-center justify-end pt-6">
-                        <motion.div
+                        <m.div
                           className="h-px w-full bg-border origin-left"
                           variants={connectorVariants}
                         />
@@ -330,7 +331,7 @@ export function ProjectsSection() {
             <div className="w-2.5 h-2.5 rounded-full bg-primary/40" />
             <p className="text-xs text-muted-foreground">Jul 2020</p>
           </div>
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

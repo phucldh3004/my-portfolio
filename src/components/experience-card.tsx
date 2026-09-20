@@ -2,7 +2,8 @@
 
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { motion, Variants } from "framer-motion";
+import { m } from "framer-motion";
+import type { Variants } from "framer-motion";
 import { Experience } from "@/config/profile";
 
 interface ExperienceCardProps {
@@ -68,7 +69,7 @@ export function ExperienceCard({
 
   return (
     /* ---- This wrapper is the one the user asked us NOT to change ---- */
-    <motion.div key={index} variants={cardVariants}>
+    <m.div key={index} variants={cardVariants}>
       <Card
         className={`p-5 space-y-3 border-border bg-card hover:shadow-xl hover:scale-[1.01] transition-all duration-300 overflow-hidden relative
           ${side === "left" ? "text-right" : "text-left"}`}
@@ -78,14 +79,14 @@ export function ExperienceCard({
           className={`absolute top-0 ${side === "left" ? "right-0" : "left-0"} w-1 h-full rounded-full bg-gradient-to-b from-primary/60 to-transparent`}
         />
 
-        <motion.div
+        <m.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
           variants={cardContentVariants}
         >
           {/* Header */}
-          <motion.div className="space-y-1" variants={itemVariants}>
+          <m.div className="space-y-1" variants={itemVariants}>
             <span className={`text-xs font-semibold uppercase tracking-widest ${typeColor}`}>
               {exp.type}
             </span>
@@ -98,50 +99,50 @@ export function ExperienceCard({
             <Badge variant="secondary" className="text-xs">
               {exp.period}
             </Badge>
-          </motion.div>
+          </m.div>
 
           {/* Achievements */}
-          <motion.div variants={itemVariants} className="mt-3">
+          <m.div variants={itemVariants} className="mt-3">
             <h4 className={`text-xs font-semibold text-foreground/70 mb-1 uppercase tracking-wider`}>
               Key Achievements
             </h4>
-            <motion.ul
+            <m.ul
               className={`space-y-1 text-xs text-muted-foreground ${side === "left" ? "items-end" : "items-start"} flex flex-col`}
               variants={achievementVariants}
             >
               {exp.achievements.map((achievement, i) => (
-                <motion.li
+                <m.li
                   key={i}
                   className={`flex gap-1.5 ${side === "left" ? "flex-row-reverse" : "flex-row"}`}
                   variants={achievementItemVariants}
                 >
                   <span className="text-primary shrink-0">•</span>
                   <span>{achievement}</span>
-                </motion.li>
+                </m.li>
               ))}
-            </motion.ul>
-          </motion.div>
+            </m.ul>
+          </m.div>
 
           {/* Tech badges */}
-          <motion.div variants={itemVariants} className="mt-3">
-            <motion.div
+          <m.div variants={itemVariants} className="mt-3">
+            <m.div
               className={`flex flex-wrap gap-1.5 ${side === "left" ? "justify-end" : "justify-start"}`}
               variants={techVariants}
             >
               {exp.tech.map((tech, i) => (
-                <motion.div key={i} variants={techItemVariants}>
+                <m.div key={i} variants={techItemVariants}>
                   <Badge
                     variant="outline"
                     className="text-xs hover:scale-110 transition-transform cursor-default"
                   >
                     {tech}
                   </Badge>
-                </motion.div>
+                </m.div>
               ))}
-            </motion.div>
-          </motion.div>
-        </motion.div>
+            </m.div>
+          </m.div>
+        </m.div>
       </Card>
-    </motion.div>
+    </m.div>
   );
 }

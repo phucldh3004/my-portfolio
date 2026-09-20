@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { profileData } from "@/config/profile";
 
 export function AboutSection() {
@@ -30,7 +30,7 @@ export function AboutSection() {
     <section id="about" className="py-24 px-4">
       <div className="container mx-auto max-w-5xl">
         <div className="grid md:grid-cols-[200px_1fr] gap-12">
-          <motion.div
+          <m.div
             className="space-y-2"
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -40,9 +40,9 @@ export function AboutSection() {
             <h2 className="text-base uppercase tracking-wider text-muted-foreground">
               About
             </h2>
-          </motion.div>
+          </m.div>
 
-          <motion.div
+          <m.div
             className="space-y-6"
             initial="hidden"
             whileInView="visible"
@@ -50,15 +50,15 @@ export function AboutSection() {
             variants={containerVariants}
           >
             {profileData.bio.map((paragraph, index) => (
-              <motion.p
+              <m.p
                 key={index}
                 className="text-lg leading-relaxed text-muted-foreground"
                 variants={itemVariants}
               >
                 {paragraph}
-              </motion.p>
+              </m.p>
             ))}
-          </motion.div>
+          </m.div>
         </div>
       </div>
     </section>

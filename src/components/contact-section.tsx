@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Mail, Phone, Github, Linkedin } from "lucide-react";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { profileData } from "@/config/profile";
 
 export function ContactSection() {
@@ -45,7 +45,7 @@ export function ContactSection() {
     <section id="contact" className="py-24 px-4">
       <div className="container mx-auto max-w-5xl">
         <div className="grid md:grid-cols-[200px_1fr] gap-12">
-          <motion.div
+          <m.div
             className="space-y-2"
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -55,16 +55,16 @@ export function ContactSection() {
             <h2 className="text-sm uppercase tracking-wider text-muted-foreground">
               Contact
             </h2>
-          </motion.div>
+          </m.div>
 
-          <motion.div
+          <m.div
             className="space-y-8"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={containerVariants}
           >
-            <motion.div className="space-y-4" variants={itemVariants}>
+            <m.div className="space-y-4" variants={itemVariants}>
               <h3 className="text-2xl font-semibold text-foreground text-balance">
                 Let's work together on your next project
               </h3>
@@ -73,13 +73,13 @@ export function ContactSection() {
                 collaborations. Whether you have a question or just want to say
                 hi, feel free to reach out!
               </p>
-            </motion.div>
+            </m.div>
 
-            <motion.div
+            <m.div
               className="grid sm:grid-cols-2 gap-4"
               variants={containerVariants}
             >
-              <motion.div variants={cardVariants}>
+              <m.div variants={cardVariants}>
                 <Card className="p-6 space-y-3 border-border bg-card hover:shadow-lg hover:scale-105 transition-all duration-300">
                   <div className="flex items-center gap-3">
                     <div className="p-2 rounded-lg bg-accent/10">
@@ -96,9 +96,9 @@ export function ContactSection() {
                     </div>
                   </div>
                 </Card>
-              </motion.div>
+              </m.div>
 
-              <motion.div variants={cardVariants}>
+              <m.div variants={cardVariants}>
                 <Card className="p-6 space-y-3 border-border bg-card hover:shadow-lg hover:scale-105 transition-all duration-300">
                   <div className="flex items-center gap-3">
                     <div className="p-2 rounded-lg bg-accent/10">
@@ -115,9 +115,9 @@ export function ContactSection() {
                     </div>
                   </div>
                 </Card>
-              </motion.div>
+              </m.div>
 
-              <motion.div variants={cardVariants}>
+              <m.div variants={cardVariants}>
                 <Card className="p-6 space-y-3 border-border bg-card hover:shadow-lg hover:scale-105 transition-all duration-300">
                   <div className="flex items-center gap-3">
                     <div className="p-2 rounded-lg bg-accent/10">
@@ -136,9 +136,9 @@ export function ContactSection() {
                     </div>
                   </div>
                 </Card>
-              </motion.div>
+              </m.div>
 
-              <motion.div variants={cardVariants}>
+              <m.div variants={cardVariants}>
                 <Card className="p-6 space-y-3 border-border bg-card hover:shadow-lg hover:scale-105 transition-all duration-300">
                   <div className="flex items-center gap-3">
                     <div className="p-2 rounded-lg bg-accent/10">
@@ -157,15 +157,15 @@ export function ContactSection() {
                     </div>
                   </div>
                 </Card>
-              </motion.div>
-            </motion.div>
+              </m.div>
+            </m.div>
 
-            <motion.div className="pt-4" variants={itemVariants}>
+            <m.div className="pt-4" variants={itemVariants}>
               <Button size="lg" asChild>
                 <a href={`mailto:${profileData.email}`}>Send me an email</a>
               </Button>
-            </motion.div>
-          </motion.div>
+            </m.div>
+          </m.div>
         </div>
       </div>
     </section>

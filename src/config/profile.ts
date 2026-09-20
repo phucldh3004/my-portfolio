@@ -82,6 +82,8 @@ export const profileData: ProfileData = {
       "Node.js",
       "NestJS",
       "Java (Spring Boot, JPA, Hibernate)",
+      "C# (.NET)",
+      "Python (FastAPI)",
       "RESTful APIs",
       "gRPC",
       "WebSocket",
@@ -94,7 +96,8 @@ export const profileData: ProfileData = {
       "Code Splitting / Lazy Loading",
       "Playwright (E2E)",
       "Micro-frontends",
-      "FCM Integration"
+      "FCM Integration",
+      "Payment Gateway Integration"
     ],
     "Tools, DevOps & AI Workflow": [
       "Git (GitHub / GitLab)",
@@ -112,7 +115,21 @@ export const profileData: ProfileData = {
   },
   experiences: [
     {
-      period: "08/2022 – Present",
+      period: "01/2026 – Present",
+      company: "Prestige Home",
+      role: "Full-stack Developer (main Frontend)",
+      type: "On-site",
+      achievements: [
+        "Engagement: Freelance (01/2026 – 06/2026), then On-site (06/2026 – Present).",
+        "Performance & Core Web Vitals: Boosted LCP by 35% and achieved a 95+ Lighthouse score using Next.js SSR/ISR, aggressive code-splitting, and asset/image optimization for high-traffic PDP/PLP.",
+        "E-Commerce UX & Conversion: Transformed Figma designs into responsive, high-converting storefronts, covering product catalogs, faceted search, shopping carts, and streamlined checkout flows.",
+        "State & Caching Architecture: Leveraged TanStack Query for optimal server-state management and client-side caching, eliminating redundant API calls and synchronizing real-time cart states.",
+        "Backend & API Integration: Collaborated on FastAPI integration, handling payment gateway workflows (Google Pay, Apple Pay, Visa, PayPal, Mastercard, Klarna), and automated E2E tests for checkout funnels."
+      ],
+      tech: ["Next.js (App Router)", "Python / FastAPI", "TanStack Query", "SWR", "TypeScript", "Ant Design", "Playwright", "Vite", "WebSocket"]
+    },
+    {
+      period: "08/2022 – 06/2026",
       company: "GIANTY VIETNAM",
       role: "Senior Frontend / Full-stack Developer",
       type: "On-site",
@@ -158,9 +175,26 @@ export const profileData: ProfileData = {
   },
   projects: [
     {
+      title: "Prestige Home",
+      description: "High-traffic e-commerce storefront with product listing/detail pages, faceted search, cart, and multi-method checkout — built with Next.js App Router on top of a Python/FastAPI backend.",
+      period: "January 2026 - Now",
+      company: "Prestige Home",
+      type: "On-site",
+      features: [
+        "Engagement: Freelance from January 2026 to June 2026, On-site from June 2026 onward.",
+        "Boosted LCP by 35% and reached a 95+ Lighthouse score with Next.js SSR/ISR, aggressive code-splitting, and asset/image optimization for high-traffic PDP/PLP.",
+        "Transformed Figma designs into responsive, high-converting storefronts: product catalogs, faceted search, shopping carts, and streamlined checkout flows.",
+        "Used TanStack Query for server-state management and client-side caching, eliminating redundant API calls and synchronizing real-time cart state.",
+        "Integrated with FastAPI services and payment gateway workflows (Google Pay, Apple Pay, Visa, PayPal, Mastercard, Klarna).",
+        "Automated Playwright E2E tests for checkout funnels."
+      ],
+      tech: ["Next.js", "Python / FastAPI", "TanStack Query", "SWR", "TypeScript", "Ant Design", "Playwright", "Vite", "WebSocket"],
+      links: []
+    },
+    {
       title: "GO Inc",
       description: "GO is Japan's leading mobility web and mobile platform that facilitates real-time taxi dispatching, seamless cashless payments (GO Pay), and on-demand ride-hailing services for millions of users.",
-      period: "January 2026 - Now",
+      period: "January 2026 - June 2026",
       company: "Gianty VN",
       type: "On-site",
       teamSize: 8,

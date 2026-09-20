@@ -1,7 +1,7 @@
 "use client";
 
 import { Badge } from "@/components/ui/badge";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { profileData } from "@/config/profile";
 
 export function SkillsSection() {
@@ -41,7 +41,7 @@ export function SkillsSection() {
     <section id="skills" className="py-24 px-4">
       <div className="container mx-auto max-w-5xl">
         <div className="grid md:grid-cols-[200px_1fr] gap-12">
-          <motion.div
+          <m.div
             className="space-y-2"
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -51,9 +51,9 @@ export function SkillsSection() {
             <h2 className="text-base uppercase tracking-wider text-muted-foreground">
               Skills
             </h2>
-          </motion.div>
+          </m.div>
 
-          <motion.div
+          <m.div
             className="space-y-8"
             initial="hidden"
             whileInView="visible"
@@ -61,7 +61,7 @@ export function SkillsSection() {
             variants={categoryVariants}
           >
             {Object.entries(profileData.skills).map(([category, items]) => (
-              <motion.div
+              <m.div
                 key={category}
                 className="space-y-3"
                 variants={itemVariants}
@@ -69,24 +69,24 @@ export function SkillsSection() {
                 <h3 className="text-lg font-semibold text-foreground">
                   {category}
                 </h3>
-                <motion.div
+                <m.div
                   className="flex flex-wrap gap-2"
                   variants={badgeContainerVariants}
                 >
                   {items.map((skill) => (
-                    <motion.div key={skill} variants={itemVariants}>
+                    <m.div key={skill} variants={itemVariants}>
                       <Badge
                         variant="secondary"
                         className="text-sm px-3 py-1 hover:scale-110 transition-transform cursor-default"
                       >
                         {skill}
                       </Badge>
-                    </motion.div>
+                    </m.div>
                   ))}
-                </motion.div>
-              </motion.div>
+                </m.div>
+              </m.div>
             ))}
-          </motion.div>
+          </m.div>
         </div>
       </div>
     </section>

@@ -1,11 +1,10 @@
 import type React from "react";
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import { profileData } from "@/config/profile";
 
 const inter = Inter({ subsets: ["latin"] });
-const jetbrainsMono = JetBrains_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: `${profileData.name} (${profileData.fullName}) - ${profileData.title} | React, Next.js, Vue, Nuxt, Node.js, NestJS, and Java Spring Boot`,
@@ -28,7 +27,7 @@ export const metadata: Metadata = {
   creator: profileData.fullName,
   icons: {
     icon: [
-      { url: "/avatar_phucldh.jpg", sizes: "any", type: "image/jpeg" },
+      { url: "/avatar_phucldh.webp", sizes: "any", type: "image/webp" },
     ],
   },
   openGraph: {
@@ -40,7 +39,7 @@ export const metadata: Metadata = {
     siteName: `${profileData.name} Portfolio`,
     images: [
       {
-        url: "/avatar_phucldh.jpg",
+        url: "/avatar_phucldh.webp",
         width: 1200,
         height: 630,
         alt: `${profileData.name} (${profileData.fullName}) - ${profileData.title}`,
@@ -51,7 +50,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: `${profileData.name} (${profileData.fullName}) - ${profileData.title}`,
     description: `Senior Frontend / Full-stack Developer with 6+ years of experience in React, Next.js, Vue, Nuxt, NestJS, and Spring Boot.`,
-    images: ["/avatar_phucldh.jpg"],
+    images: ["/avatar_phucldh.webp"],
   },
   robots: {
     index: true,
@@ -78,7 +77,7 @@ export default function RootLayout({
               jobTitle: profileData.title,
               description: `Senior Frontend / Full-stack Developer with 6+ years of experience specializing in React.js, Next.js, Vue.js, and Nuxt.js ecosystems.`,
               url: "https://le-duong-hoang-phuc-3004.vercel.app/",
-              image: "/avatar_phucldh.jpg",
+              image: "/avatar_phucldh.webp",
               email: profileData.email,
               telephone: profileData.phone,
               sameAs: [
@@ -106,7 +105,7 @@ export default function RootLayout({
               worksFor: [
                 {
                   "@type": "Organization",
-                  name: "GIANTY VIETNAM",
+                  name: "Prestige Home",
                 },
               ],
             }),
