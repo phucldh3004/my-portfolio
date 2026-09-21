@@ -1,10 +1,7 @@
 import type React from "react";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 import { profileData } from "@/config/profile";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: `${profileData.name} (${profileData.fullName}) - ${profileData.title} | React, Next.js, Vue, Nuxt, Node.js, NestJS, and Java Spring Boot`,
@@ -112,7 +109,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${inter.className} antialiased`}>
+      <body className="antialiased">
         {children}
       </body>
     </html>

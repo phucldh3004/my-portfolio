@@ -12,7 +12,35 @@ export function HeroSection() {
   const vantaRef = useRef<HTMLDivElement>(null)
   const [threeLoaded, setThreeLoaded] = useState(false)
   const [vantaLoaded, setVantaLoaded] = useState(false)
+  // The animated background is decorative but heavy (three.js ~600 KB + WebGL loop),
+  // so only load it on capable devices, and only once the page is idle.
+  const [enableVanta, setEnableVanta] = useState(false)
   const vantaEffectRef = useRef<any>(null)
+
+  useEffect(() => {
+    const conn = (navigator as any).connection
+    const canAnimate =
+      window.matchMedia("(min-width: 768px)").matches &&
+      !window.matchMedia("(prefers-reduced-motion: reduce)").matches &&
+      !conn?.saveData
+    if (!canAnimate) return
+
+    const enable = () => setEnableVanta(true)
+    const schedule = () => {
+      if (typeof window.requestIdleCallback === "function") {
+        window.requestIdleCallback(enable, { timeout: 3000 })
+      } else {
+        setTimeout(enable, 1500)
+      }
+    }
+
+    if (document.readyState === "complete") {
+      schedule()
+      return
+    }
+    window.addEventListener("load", schedule, { once: true })
+    return () => window.removeEventListener("load", schedule)
+  }, [])
 
   useEffect(() => {
     // If scripts are loaded and reference is ready, initialize Vanta
@@ -90,23 +118,21 @@ export function HeroSection() {
 
   return (
     <>
-      {/* Declarative loading of dependency scripts using Next.js optimization */}
-      <Script
-        src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"
-        strategy="afterInteractive"
-        onLoad={() => {
-          console.log("Three.js loaded via next/script");
-          setThreeLoaded(true);
-        }}
-      />
-      <Script
-        src="https://cdn.jsdelivr.net/npm/vanta@0.5.24/dist/vanta.net.min.js"
-        strategy="afterInteractive"
-        onLoad={() => {
-          console.log("Vanta.js loaded via next/script");
-          setVantaLoaded(true);
-        }}
-      />
+      {/* Scripts are mounted only when the background is enabled (see enableVanta). Vanta is loaded after three.js so window.THREE always exists. */}
+      {enableVanta && (
+        <Script
+          src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"
+          strategy="afterInteractive"
+          onLoad={() => setThreeLoaded(true)}
+        />
+      )}
+      {threeLoaded && (
+        <Script
+          src="https://cdn.jsdelivr.net/npm/vanta@0.5.24/dist/vanta.net.min.js"
+          strategy="afterInteractive"
+          onLoad={() => setVantaLoaded(true)}
+        />
+      )}
 
       <section ref={vantaRef} className="relative min-h-screen flex items-center justify-center px-4 pt-20">
         <div className="absolute inset-0 bg-background/30 backdrop-blur-[1px]" />
