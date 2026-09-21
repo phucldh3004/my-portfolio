@@ -4,133 +4,66 @@ import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
 import Image from "next/image"
 import { m } from "framer-motion";
-import { useEffect, useRef, useState } from "react"
+import { useRef } from "react"
 import Script from "next/script"
 import { profileData } from "@/config/profile"
+import { useVantaBackground } from "@/hooks/use-vanta-background"
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+      delayChildren: 0.2,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.8,
+      ease: [0.16, 1, 0.3, 1] as any,
+    },
+  },
+};
+
+const avatarVariants = {
+  // Keep opacity at 1 so the avatar (LCP element) is painted immediately instead of after a fade-in.
+  hidden: { opacity: 1, scale: 0.8 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      duration: 1.2,
+      ease: [0.16, 1, 0.3, 1] as any,
+    },
+  },
+};
 
 export function HeroSection() {
   const vantaRef = useRef<HTMLDivElement>(null)
-  const [threeLoaded, setThreeLoaded] = useState(false)
-  const [vantaLoaded, setVantaLoaded] = useState(false)
-  // The animated background is decorative but heavy (three.js ~600 KB + WebGL loop),
-  // so only load it on capable devices, and only once the page is idle.
-  const [enableVanta, setEnableVanta] = useState(false)
-  const vantaEffectRef = useRef<any>(null)
-
-  useEffect(() => {
-    const conn = (navigator as any).connection
-    const canAnimate =
-      window.matchMedia("(min-width: 768px)").matches &&
-      !window.matchMedia("(prefers-reduced-motion: reduce)").matches &&
-      !conn?.saveData
-    if (!canAnimate) return
-
-    const enable = () => setEnableVanta(true)
-    const schedule = () => {
-      if (typeof window.requestIdleCallback === "function") {
-        window.requestIdleCallback(enable, { timeout: 3000 })
-      } else {
-        setTimeout(enable, 1500)
-      }
-    }
-
-    if (document.readyState === "complete") {
-      schedule()
-      return
-    }
-    window.addEventListener("load", schedule, { once: true })
-    return () => window.removeEventListener("load", schedule)
-  }, [])
-
-  useEffect(() => {
-    // If scripts are loaded and reference is ready, initialize Vanta
-    if (threeLoaded && vantaLoaded && vantaRef.current && typeof window !== "undefined") {
-      const w = window as any;
-      if (w.VANTA && w.VANTA.NET && !vantaEffectRef.current) {
-        try {
-          vantaEffectRef.current = w.VANTA.NET({
-            el: vantaRef.current,
-            mouseControls: true,
-            touchControls: true,
-            gyroControls: false,
-            minHeight: 200.0,
-            minWidth: 200.0,
-            scale: 1.0,
-            scaleMobile: 1.0,
-            color: 0x0c4a6e,
-            backgroundColor: 0x0a0a0a,
-            points: 16.0,
-            maxDistance: 31.0,
-            spacing: 21.0,
-          });
-          console.log("Vanta.js NET initialized successfully");
-        } catch (err) {
-          console.error("Failed to initialize Vanta.js NET:", err);
-        }
-      }
-    }
-
-    return () => {
-      // Destructor cleanup to avoid WebGL memory leaks
-      if (vantaEffectRef.current) {
-        vantaEffectRef.current.destroy();
-        vantaEffectRef.current = null;
-        console.log("Vanta.js instance destroyed");
-      }
-    }
-  }, [threeLoaded, vantaLoaded]);
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.2,
-      },
-    },
-  }
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.8,
-        ease: [0.16, 1, 0.3, 1] as any,
-      },
-    },
-  }
-
-  const avatarVariants = {
-    // Keep opacity at 1 so the avatar (LCP element) is painted immediately instead of after a fade-in.
-    hidden: { opacity: 1, scale: 0.8 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        duration: 1.2,
-        ease: [0.16, 1, 0.3, 1] as any,
-      },
-    },
-  }
+  const vanta = useVantaBackground(vantaRef)
 
   return (
     <>
-      {/* Scripts are mounted only when the background is enabled (see enableVanta). Vanta is loaded after three.js so window.THREE always exists. */}
-      {enableVanta && (
+      {/* Scripts are mounted only when the background is enabled (see useVantaBackground). Vanta is loaded after three.js so window.THREE always exists. */}
+      {vanta.enabled && (
         <Script
           src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"
           strategy="afterInteractive"
-          onLoad={() => setThreeLoaded(true)}
+          onLoad={vanta.onThreeLoad}
         />
       )}
-      {threeLoaded && (
+      {vanta.threeLoaded && (
         <Script
           src="https://cdn.jsdelivr.net/npm/vanta@0.5.24/dist/vanta.net.min.js"
           strategy="afterInteractive"
-          onLoad={() => setVantaLoaded(true)}
+          onLoad={vanta.onVantaLoad}
         />
       )}
 

@@ -7,7 +7,7 @@ import { profileData, Project } from "@/config/profile";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, Users } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 
 /* ─── responsive hook ────────────────────────────────────────────── */
 function useIsMobile(breakpoint = 768) {
@@ -101,6 +101,36 @@ function TimelineDot({ label }: { label: string }) {
 }
 
 /* ─── project card ───────────────────────────────────────────────── */
+const cardContentVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { staggerChildren: 0.1, delayChildren: 0.2 } },
+};
+
+const itemVariants: Variants = {
+  hidden: { opacity: 0, x: -20 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] as any } },
+};
+
+const featureVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { staggerChildren: 0.06 } },
+};
+
+const featureItemVariants: Variants = {
+  hidden: { opacity: 0, x: -10 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.4 } },
+};
+
+const techVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { staggerChildren: 0.05 } },
+};
+
+const techItemVariants: Variants = {
+  hidden: { opacity: 0, scale: 0.8 },
+  visible: { opacity: 1, scale: 1, transition: { duration: 0.3 } },
+};
+
 function ProjectCard({
   project,
   index,
@@ -111,31 +141,6 @@ function ProjectCard({
   side: "left" | "right";
 }) {
   const typeColor = typeColorMap[project.type ?? ""] ?? "text-muted-foreground";
-
-  const cardContentVariants: Variants = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { staggerChildren: 0.1, delayChildren: 0.2 } },
-  };
-  const itemVariants: Variants = {
-    hidden: { opacity: 0, x: -20 },
-    visible: { opacity: 1, x: 0, transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] as any } },
-  };
-  const featureVariants: Variants = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { staggerChildren: 0.06 } },
-  };
-  const featureItemVariants: Variants = {
-    hidden: { opacity: 0, x: -10 },
-    visible: { opacity: 1, x: 0, transition: { duration: 0.4 } },
-  };
-  const techVariants: Variants = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { staggerChildren: 0.05 } },
-  };
-  const techItemVariants: Variants = {
-    hidden: { opacity: 0, scale: 0.8 },
-    visible: { opacity: 1, scale: 1, transition: { duration: 0.3 } },
-  };
 
   return (
     <m.div key={index} variants={cardVariants}>
