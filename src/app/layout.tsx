@@ -3,7 +3,10 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { profileData } from "@/config/profile";
 
+const SITE_URL = "https://le-duong-hoang-phuc-3004.vercel.app";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: `${profileData.name} (${profileData.fullName}) - ${profileData.title} | React, Next.js, Vue, Nuxt, Node.js, NestJS, and Java Spring Boot`,
   description: `Senior Frontend / Full-stack Developer with 6+ years of experience specializing in React.js, Next.js, Vue.js, and Nuxt.js ecosystems. Solid full-stack capability with Node.js/Nest.js and Java Spring Boot.`,
   keywords: [
@@ -30,7 +33,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://le-duong-hoang-phuc-3004.vercel.app/",
+    url: SITE_URL,
     title: `${profileData.name} (${profileData.fullName}) - ${profileData.title}`,
     description: `Senior Frontend / Full-stack Developer with 6+ years of experience specializing in React.js, Next.js, Vue.js, and Nuxt.js ecosystems.`,
     siteName: `${profileData.name} Portfolio`,
@@ -73,8 +76,8 @@ export default function RootLayout({
               alternateName: profileData.name,
               jobTitle: profileData.title,
               description: `Senior Frontend / Full-stack Developer with 6+ years of experience specializing in React.js, Next.js, Vue.js, and Nuxt.js ecosystems.`,
-              url: "https://le-duong-hoang-phuc-3004.vercel.app/",
-              image: "/avatar_phucldh.webp",
+              url: SITE_URL,
+              image: `${SITE_URL}/avatar_phucldh.webp`,
               email: profileData.email,
               telephone: profileData.phone,
               sameAs: [

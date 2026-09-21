@@ -39,9 +39,9 @@
   --sidebar-ring: oklch(0.708 0 0);
 
   /* ── Primitive brand colors ───────────────────────────────────── */
-  --brand-dark:  #0f172a; /* slate-900  */
-  --brand:       #0c4a6e; /* sky-900 — primary brand color */
-  --brand-mid:   #0369a1; /* sky-700    */
+  --brand-dark: #0f172a; /* slate-900  */
+  --brand: #0c4a6e; /* sky-900 — primary brand color */
+  --brand-mid: #0369a1; /* sky-700    */
   --brand-light: #38bdf8; /* sky-400    */
   /* Shorthand gradient using brand primitives */
   --gradient-brand: linear-gradient(to right, var(--brand-dark), var(--brand));
@@ -82,9 +82,9 @@
   --sidebar-ring: oklch(0.439 0 0);
 
   /* ── Primitive brand colors (dark mode — brighten slightly) ────── */
-  --brand-dark:  #0f172a;
-  --brand:       #0c4a6e;
-  --brand-mid:   #0ea5e9; /* sky-500 — more visible on dark bg */
+  --brand-dark: #0f172a;
+  --brand: #0c4a6e;
+  --brand-mid: #0ea5e9; /* sky-500 — more visible on dark bg */
   --brand-light: #7dd3fc; /* sky-300 */
   --gradient-brand: linear-gradient(to right, var(--brand-dark), var(--brand));
 }
@@ -129,9 +129,9 @@
   --color-sidebar-ring: var(--sidebar-ring);
 
   /* ── Brand primitives exposed to Tailwind ────────────────────── */
-  --color-brand-dark:  var(--brand-dark);
-  --color-brand:       var(--brand);
-  --color-brand-mid:   var(--brand-mid);
+  --color-brand-dark: var(--brand-dark);
+  --color-brand: var(--brand);
+  --color-brand-mid: var(--brand-mid);
   --color-brand-light: var(--brand-light);
 }
 
@@ -145,11 +145,12 @@
 
   html {
     scroll-behavior: smooth;
-    overflow-x: hidden;
   }
 
+  /* `clip` (not `hidden`) so body doesn't become a second vertical scroll container.
+     Never set overflow on both html and body: it produces two nested scrollbars. */
   body {
-    overflow-x: hidden;
+    overflow-x: clip;
   }
 
   /* Ngăn Radix UI thêm padding-right vào body khi Sheet/Dialog mở */
@@ -230,3 +231,4 @@
     animation: slideInRight 0.6s ease-out forwards;
   }
 }
+

@@ -68,7 +68,7 @@ export function HeroSection() {
       )}
 
       <section ref={vantaRef} className="relative min-h-screen flex items-center justify-center px-4 pt-20">
-        <div className="absolute inset-0 bg-background/30 backdrop-blur-[1px]" />
+        <div className="absolute inset-0" />
 
         <div className="container mx-auto max-w-5xl relative z-10">
           <div className="flex flex-col md:flex-row items-center gap-12">

@@ -43,6 +43,8 @@ export function Navigation() {
                 fill
                 sizes="40px"
                 className="object-cover"
+                loading="eager"
+                fetchPriority="low"
               />
             </div>
           </a>
